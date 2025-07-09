@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 class Input extends Component {
   render() {
-    return <input></input>;
+    return <input type="text" />;
   }
 }
 
