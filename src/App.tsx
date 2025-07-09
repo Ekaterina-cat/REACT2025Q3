@@ -1,17 +1,10 @@
-import { useState } from 'react';
-import './App.css';
+import type { JSX } from 'react';
+import { Search } from './pages/SearchView';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+function App(): JSX.Element {
   return (
     <>
-      <h1>Search Engine</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Search />
     </>
   );
 }
