@@ -1,8 +1,12 @@
 import { Component } from 'react';
 
-class Button extends Component {
+interface ButtonProps {
+  onClick: () => void;
+}
+
+class Button extends Component<ButtonProps> {
   render() {
-    return <button>search</button>;
+    return <button onClick={this.props.onClick}>search</button>;
   }
 }
 
