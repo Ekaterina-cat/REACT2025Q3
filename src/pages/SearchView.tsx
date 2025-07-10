@@ -10,13 +10,11 @@ export class Search extends Component {
   render() {
     return (
       <>
-        <div>
-          <Header />
-          <Main
-            searchText={this.state.searchText}
-            pokemons={this.state.pokemons}
-          />
-        </div>
+        <Header />
+        <Main
+          searchText={this.state.searchText}
+          pokemons={this.state.pokemons}
+        />
       </>
     );
   }

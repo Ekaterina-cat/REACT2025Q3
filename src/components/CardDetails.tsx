@@ -44,36 +44,36 @@ class CardDetails extends Component<PokemonDetailProps, PokemonDetailState> {
     }
 
     return (
-      <div>
-        <p>Height: {details.height}</p>
-        <p>Weight: {details.weight}</p>
-        <p>
+      <ul>
+        <li>Height: {details.height}</li>
+        <li>Weight: {details.weight}</li>
+        <li>
           Types:{' '}
           {details.types.map((typeInfo) => typeInfo.type.name).join(', ')}
-        </p>
-        <p>
+        </li>
+        <li>
           Abilities:{' '}
           {details.abilities
             .map((abilityInfo) => abilityInfo.ability.name)
             .join(', ')}
-        </p>
-        <p>
+        </li>
+        <li>
           Stats:{' '}
           {details.stats
             .map((statInfo) => `${statInfo.stat.name}: ${statInfo.base_stat}`)
             .join(', ')}
-        </p>
-        <p>
+        </li>
+        <li>
           Moves:{' '}
           {details.moves
             .slice(0, 5)
             .map((moveInfo) => moveInfo.move.name)
             .join(', ')}
-        </p>
+        </li>
         {details.sprites.front_default && (
           <img src={details.sprites.front_default} alt="Pokemon" />
         )}
-      </div>
+      </ul>
     );
   }
 }

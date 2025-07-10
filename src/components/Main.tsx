@@ -48,7 +48,7 @@ class Main extends Component<MainProps> {
 
     return (
       <>
-        <div>
+        <main>
           <div>
             <Input
               value={this.state.searchText}
@@ -59,7 +59,7 @@ class Main extends Component<MainProps> {
           <div>
             <CardList pokemons={filterPokemons} />
           </div>
-        </div>
+        </main>
       </>
     );
   }

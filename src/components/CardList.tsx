@@ -10,14 +10,14 @@ class CardList extends Component<CardListProps> {
   render() {
     const { pokemons } = this.props;
     return (
-      <div>
+      <ul>
         {pokemons.map((pokemon) => (
-          <div key={pokemon.url}>
+          <li key={pokemon.url}>
             <h3>{pokemon.name}</h3>
             <CardDetails url={pokemon.url} />
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     );
   }
 }
