@@ -6,6 +6,7 @@ import CardList from './CardList';
 
 interface Pokemon {
   name: string;
+  url: string;
 }
 
 interface MainProps {
@@ -13,25 +14,20 @@ interface MainProps {
   pokemons: Pokemon[];
 }
 
-class Main extends Component<object, MainProps> {
-  constructor(props: object) {
-    super(props);
-    this.state = {
-      searchText: '',
-      pokemons: [],
-    };
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleIndputChange = this.handleIndputChange.bind(this);
-  }
+class Main extends Component<MainProps> {
+  state = {
+    searchText: '',
+    pokemons: [],
+  };
 
-  async handleSearch() {
+  handleSearch = async () => {
     const pokemons = await new PokemonService().fetchPokemons();
     this.setState({ pokemons });
-  }
+  };
 
-  handleIndputChange(event: React.ChangeEvent<HTMLInputElement>) {
+  handleIndputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ searchText: event.target.value });
-  }
+  };
 
   render() {
     return (
