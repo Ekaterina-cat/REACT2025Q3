@@ -12,6 +12,7 @@ class Input extends Component<InputProps> {
         type="text"
         value={this.props.value}
         onChange={this.props.onChange}
+        placeholder="Search..."
       />
     );
   }

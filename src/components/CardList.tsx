@@ -1,10 +1,6 @@
 import { Component } from 'react';
 import CardDetails from './CardDetails';
-
-interface Pokemon {
-  name: string;
-  url: string;
-}
+import type { Pokemon } from '../types/types';
 
 interface CardListProps {
   pokemons: Pokemon[];
@@ -15,8 +11,8 @@ class CardList extends Component<CardListProps> {
     const { pokemons } = this.props;
     return (
       <div>
-        {pokemons.map((pokemon, index) => (
-          <div key={index}>
+        {pokemons.map((pokemon) => (
+          <div key={pokemon.url}>
             <h3>{pokemon.name}</h3>
             <CardDetails url={pokemon.url} />
           </div>

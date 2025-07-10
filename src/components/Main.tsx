@@ -3,11 +3,7 @@ import Input from './Input';
 import Button from './Button';
 import { PokemonService } from '../services/pokemonService';
 import CardList from './CardList';
-
-interface Pokemon {
-  name: string;
-  url: string;
-}
+import type { Pokemon } from '../types/types';
 
 interface MainProps {
   searchText: string;
@@ -15,14 +11,29 @@ interface MainProps {
 }
 
 class Main extends Component<MainProps> {
-  state = {
+  state: MainProps = {
     searchText: '',
     pokemons: [],
   };
 
-  handleSearch = async () => {
+  async componentDidMount() {
+    const savedSearchText = localStorage.getItem('savedSearchPokemon');
+    if (savedSearchText) {
+      this.setState({ searchText: savedSearchText });
+    }
+    await this.loadPokemons();
+  }
+
+  loadPokemons = async () => {
     const pokemons = await new PokemonService().fetchPokemons();
     this.setState({ pokemons });
+  };
+
+  handleSearch = async () => {
+    const { searchText } = this.state;
+    const trimSearchText = searchText.trim();
+    localStorage.setItem('savedSearchPokemon', trimSearchText);
+    await this.loadPokemons();
   };
 
   handleIndputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +41,11 @@ class Main extends Component<MainProps> {
   };
 
   render() {
+    const { searchText, pokemons } = this.state;
+    const filterPokemons = pokemons.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+
     return (
       <>
         <div>
@@ -41,7 +57,7 @@ class Main extends Component<MainProps> {
             <Button onClick={this.handleSearch} />
           </div>
           <div>
-            <CardList pokemons={this.state.pokemons} />
+            <CardList pokemons={filterPokemons} />
           </div>
         </div>
       </>

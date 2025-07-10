@@ -3,12 +3,19 @@ import Header from '../components/Header';
 import Main from '../components/Main';
 
 export class Search extends Component {
+  state = {
+    searchText: '',
+    pokemons: [],
+  };
   render() {
     return (
       <>
         <div>
           <Header />
-          <Main />
+          <Main
+            searchText={this.state.searchText}
+            pokemons={this.state.pokemons}
+          />
         </div>
       </>
     );
