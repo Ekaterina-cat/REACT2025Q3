@@ -10,14 +10,19 @@ class CardList extends Component<CardListProps> {
   render() {
     const { pokemons } = this.props;
     return (
-      <ul>
-        {pokemons.map((pokemon) => (
-          <li key={pokemon.url}>
-            <h3>{pokemon.name}</h3>
-            <CardDetails url={pokemon.url} />
-          </li>
+      <section className="flex flex-col gap-10">
+        {pokemons.map((pokemon, index) => (
+          <div key={pokemon.url}>
+            <div className="grid grid-cols-[minmax(200px,1fr)_1fr_1fr] gap-4">
+              <h3 className="justify-self-center self-center font-mono font-bold text-2xl">
+                {pokemon.name.toUpperCase()}
+              </h3>
+              <CardDetails url={pokemon.url} />
+            </div>
+            {index < pokemons.length - 1 && <hr />}
+          </div>
         ))}
-      </ul>
+      </section>
     );
   }
 }

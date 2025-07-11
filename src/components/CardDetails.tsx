@@ -44,36 +44,58 @@ class CardDetails extends Component<PokemonDetailProps, PokemonDetailState> {
     }
 
     return (
-      <ul>
-        <li>Height: {details.height}</li>
-        <li>Weight: {details.weight}</li>
-        <li>
-          Types:{' '}
-          {details.types.map((typeInfo) => typeInfo.type.name).join(', ')}
-        </li>
-        <li>
-          Abilities:{' '}
-          {details.abilities
-            .map((abilityInfo) => abilityInfo.ability.name)
-            .join(', ')}
-        </li>
-        <li>
-          Stats:{' '}
-          {details.stats
-            .map((statInfo) => `${statInfo.stat.name}: ${statInfo.base_stat}`)
-            .join(', ')}
-        </li>
-        <li>
-          Moves:{' '}
-          {details.moves
-            .slice(0, 5)
-            .map((moveInfo) => moveInfo.move.name)
-            .join(', ')}
-        </li>
+      <>
+        <ul>
+          <li className="flex flex-row gap-2">
+            <h3 className="font-mono text-1.5xl">Height:</h3>
+            <p>{details.height}</p>
+          </li>
+          <li className="flex flex-row gap-2">
+            <h3 className="font-mono text-1.5xl">Weight:</h3>
+            <p>{details.weight}</p>
+          </li>
+          <li className="flex flex-row gap-2">
+            <h3 className="font-mono text-1.5xl">Types:</h3>
+            <p>
+              {details.types.map((typeInfo) => typeInfo.type.name).join(', ')}
+            </p>
+          </li>
+          <li className="flex flex-row gap-2">
+            <h3 className="font-mono text-1.5xl">Abilities:</h3>
+            <p>
+              {details.abilities
+                .map((abilityInfo) => abilityInfo.ability.name)
+                .join(', ')}
+            </p>
+          </li>
+          <li className="flex flex-row gap-2">
+            <h3 className="font-mono text-1.5xl">Stats:</h3>
+            <p>
+              {details.stats
+                .map(
+                  (statInfo) => `${statInfo.stat.name}: ${statInfo.base_stat}`
+                )
+                .join(', ')}
+            </p>
+          </li>
+          <li className="flex flex-row gap-2">
+            <h3 className="font-mono text-1.5xl">Moves:</h3>
+            <p>
+              {details.moves
+                .slice(0, 5)
+                .map((moveInfo) => moveInfo.move.name)
+                .join(', ')}
+            </p>
+          </li>
+        </ul>
         {details.sprites.front_default && (
-          <img src={details.sprites.front_default} alt="Pokemon" />
+          <img
+            src={details.sprites.front_default}
+            alt="Pokemon"
+            className="justify-self-center w-40 h-40"
+          />
         )}
-      </ul>
+      </>
     );
   }
 }

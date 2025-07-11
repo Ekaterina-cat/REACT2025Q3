@@ -5,8 +5,15 @@ interface ButtonProps {
 }
 
 class Button extends Component<ButtonProps> {
+  state = {
+    nameBtn: 'search',
+  };
   render() {
-    return <button onClick={this.props.onClick}>search</button>;
+    return (
+      <button onClick={this.props.onClick}>
+        {this.state.nameBtn.toUpperCase()}
+      </button>
+    );
   }
 }
 

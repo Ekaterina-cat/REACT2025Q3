@@ -48,8 +48,8 @@ class Main extends Component<MainProps> {
 
     return (
       <>
-        <main>
-          <div>
+        <main className="m-auto">
+          <div className="flex flex-row justify-end gap-4">
             <Input
               value={this.state.searchText}
               onChange={this.handleIndputChange}

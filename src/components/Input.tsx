@@ -13,6 +13,7 @@ class Input extends Component<InputProps> {
         value={this.props.value}
         onChange={this.props.onChange}
         placeholder="Search..."
+        className="bg-gray-200 p-2 rounded"
       />
     );
   }
