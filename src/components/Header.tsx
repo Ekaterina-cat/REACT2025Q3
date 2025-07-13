@@ -1,7 +1,7 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 
 class Header extends Component {
-  render() {
+  render(): ReactNode {
     return (
       <>
         <header

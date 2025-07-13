@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 
 interface PokemonDeatails {
   height: number;
@@ -36,7 +36,7 @@ class CardDetails extends Component<PokemonDetailProps, PokemonDetailState> {
     }
   };
 
-  render() {
+  render(): ReactNode {
     const { details } = this.state;
 
     if (!details) {

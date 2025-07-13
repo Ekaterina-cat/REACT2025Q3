@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 import Input from './Input';
 import Button from './Button';
 import { PokemonService } from '../services/pokemonService';
@@ -40,7 +40,7 @@ class Main extends Component<MainProps> {
     this.setState({ searchText: event.target.value });
   };
 
-  render() {
+  render(): ReactNode {
     const { searchText, pokemons } = this.state;
     const filterPokemons = pokemons.filter((pokemon) =>
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())

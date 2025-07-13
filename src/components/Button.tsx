@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 
 interface ButtonProps {
   onClick: () => void;
@@ -8,7 +8,7 @@ class Button extends Component<ButtonProps> {
   state = {
     nameBtn: 'search',
   };
-  render() {
+  render(): ReactNode {
     return (
       <button
         onClick={this.props.onClick}

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 import CardDetails from './CardDetails';
 import type { Pokemon } from '../types/types';
 
@@ -7,7 +7,7 @@ interface CardListProps {
 }
 
 class CardList extends Component<CardListProps> {
-  render() {
+  render(): ReactNode {
     const { pokemons } = this.props;
     return (
       <section className="flex flex-col gap-10 mb-10">

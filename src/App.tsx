@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 import { Search } from './pages/SearchView';
 import ButtonError from './components/ButtonError';
 import Footer from './components/Footer';
@@ -16,7 +16,7 @@ class App extends Component {
     this.setState({ shouldThrowError: false });
   };
 
-  render() {
+  render(): ReactNode {
     if (this.state.shouldThrowError) {
       throw new Error('This is a simulated error!');
     }

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 
 interface ButtonProps {
   onClick: () => void;
@@ -8,7 +8,7 @@ class ButtonError extends Component<ButtonProps> {
   state = {
     nameBtn: 'error',
   };
-  render() {
+  render(): ReactNode {
     return (
       <div className="w-full flex justify-end mb-10">
         <button

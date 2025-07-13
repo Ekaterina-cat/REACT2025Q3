@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, type ReactNode } from 'react';
 
 interface InputProps {
   value: string;
@@ -6,7 +6,7 @@ interface InputProps {
 }
 
 class Input extends Component<InputProps> {
-  render() {
+  render(): ReactNode {
     return (
       <input
         type="text"
