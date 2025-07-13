@@ -26,8 +26,10 @@ a:hover {
 body {
   margin: 0 auto;
   place-items: center;
-  width: 90rem;
+  width: 100%;
   min-height: 100vh;
+  background: -webkit-linear-gradient(90deg, #cda3a8,#ffd6db,#dfa9b0);
+  background: linear-gradient(90deg, #cda3a8,#ffd6db,#dfa9b0);
 }
 
 h1 {

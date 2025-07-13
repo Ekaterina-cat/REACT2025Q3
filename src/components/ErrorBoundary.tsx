@@ -29,8 +29,15 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     if (this.state.hasError) {
       return (
         <>
-          <h1>Something went wrong.</h1>
-          <button onClick={this.handleTryAgain}>Try Again</button>
+          <section className="flex flex-col justify-center gap-6">
+            <h1 className="font-bold uppercase">Something went wrong.</h1>
+            <button
+              onClick={this.handleTryAgain}
+              className="px-6 py-3 bg-gradient-to-r from-green-500 to-green-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:scale-105"
+            >
+              Try Again
+            </button>
+          </section>
         </>
       );
     }
