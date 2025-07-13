@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Search } from './pages/SearchView';
 import ButtonError from './components/ButtonError';
+import Footer from './components/Footer';
 
 class App extends Component {
   state = {
@@ -24,6 +25,7 @@ class App extends Component {
       <>
         <Search />
         <ButtonError onClick={this.handleErrorButtonClick} />
+        <Footer />
       </>
     );
   }
