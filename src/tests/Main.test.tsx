@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Main from '../components/Main';
 
@@ -18,25 +18,29 @@ describe('Main Component', () => {
     render(<Main searchText="" pokemons={[]} />);
   });
 
-  it('saves searchText to localStorage', () => {
+  it('saves searchText to localStorage', async () => {
     const setItemSpy = vi.spyOn(Storage.prototype, 'setItem');
     const { input, button } = setupComponent();
 
-    fireEvent.change(input, { target: { value: 'Pikachu' } });
-    fireEvent.click(button);
+    await act(async () => {
+      fireEvent.change(input, { target: { value: 'Pikachu' } });
+      fireEvent.click(button);
+    });
 
     expect(setItemSpy).toHaveBeenCalledWith('savedSearchPokemon', 'Pikachu');
   });
 
-  it('overwrites existing localStorage value on new search', () => {
+  it('overwrites existing localStorage value on new search', async () => {
     const initSearchText = 'Initial Pikachu';
     const newSearchText = 'New Charmander';
     Storage.prototype.getItem = vi.fn().mockReturnValue(initSearchText);
     const setItemSpy = vi.spyOn(Storage.prototype, 'setItem');
     const { input, button } = setupComponent();
 
-    fireEvent.change(input, { target: { value: newSearchText } });
-    fireEvent.click(button);
+    await act(async () => {
+      fireEvent.change(input, { target: { value: newSearchText } });
+      fireEvent.click(button);
+    });
 
     expect(setItemSpy).toHaveBeenCalledWith(
       'savedSearchPokemon',
