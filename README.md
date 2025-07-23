@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
+# Study project for REACT2025Q3 course at RSSCHOOL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is part of the RSSCHOOL curriculum and is aimed at learning and mastering the React framework. Within the scope of this project, we will explore best practices for setting up React applications and examine optimal libraries and build tools for creating modern web applications.
 
-Currently, two official plugins are available:
+## Project Goals
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Learning React**: Mastering the core concepts and capabilities of React, including components, state, props, and hooks.
+- **Environment Setup**: Defining and configuring the optimal development environment for React applications.
+- **Library Selection**: Researching and integrating useful libraries that extend the functionality of React applications.
+- **Build Optimization**: Using modern build tools to enhance performance and development convenience.
 
-## Expanding the ESLint configuration
+## Key Objectives
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Learn to set up React applications from scratch.
+- Study and apply popular libraries in practice, such as React Router for routing, and others.
+- Master the use of modern bundlers like Webpack and Vite to optimize the development and build process of applications.
+- Develop a sample application demonstrating the application of learned technologies and approaches.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## API Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+This project utilizes [PokeAPI](https://pokeapi.co/), which provides access to an extensive database of Pokémon.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+## Tech Stack
+
+ | Category  | Technology                                                                                                                |
+ |-----------|---------------------------------------------------------------------------------------------------------------------------|
+ | Frontend  | [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/) |
+ | Tooling   | [Vite](https://vite.dev/), [Vitest](https://vitest.dev/), [Prettier](https://prettier.io/), [ESLint](https://eslint.org/) |
+ | Testing   | [Vitest](https://vitest.dev/)                                                                                             |
+ | Git Hooks | [Husky](https://typicode.github.io/husky/)                                                                                |
+
+## How to Run the Project Locally
+
+1. Clone the repo
+
+```bash
+   git clone https://github.com/Ekaterina-cat/REACT2025Q3.git
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+```bash
+   npm install
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+3. Start the development server
+
+```bash
+   npm run dev
 ```
