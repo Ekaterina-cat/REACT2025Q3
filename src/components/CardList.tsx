@@ -1,5 +1,5 @@
 import { Component, type ReactNode } from 'react';
-import CardDetails from './CardDetails';
+import CardDetails from './card-details/card-details-render';
 import type { Pokemon } from '../types/types';
 import Spinner from './Spinner';
 import ErrorDataRetrieval from './ErrorDataRetrieval';
