@@ -1,37 +1,14 @@
 import type React from 'react';
 import Header from '../components/Header';
-import Main from '../components/Main';
-import { useState } from 'react';
+import Main from '../components/main/Main';
 
 const Search = (): React.JSX.Element => {
-  const [state] = useState({
-    searchText: '',
-    pokemons: [],
-  });
   return (
     <>
       <Header />
-      <Main searchText={state.searchText} pokemons={state.pokemons} />
+      <Main />
     </>
   );
 };
 
 export default Search;
-
-// export class Search extends Component {
-//   state = {
-//     searchText: '',
-//     pokemons: [],
-//   };
-//   render() {
-//     return (
-//       <>
-//         <Header />
-//         <Main
-//           searchText={this.state.searchText}
-//           pokemons={this.state.pokemons}
-//         />
-//       </>
-//     );
-//   }
-// }

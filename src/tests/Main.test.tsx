@@ -1,21 +1,21 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Main from '../components/Main';
+import Main from '../components/main/Main';
 
 const mockPokemons = [{ name: 'Pikachu' }, { name: 'Charmander' }];
 
 describe('Main Component', () => {
   const setupComponent = () => {
     window.fetch = vi.fn().mockResolvedValue(mockPokemons);
-    render(<Main searchText="" pokemons={[]} />);
+    render(<Main />);
     const input = screen.getByRole('textbox');
     const button = screen.getByRole('button');
     return { input, button };
   };
 
   it('renders main component', () => {
-    render(<Main searchText="" pokemons={[]} />);
+    render(<Main />);
   });
 
   it('saves searchText to localStorage', async () => {
