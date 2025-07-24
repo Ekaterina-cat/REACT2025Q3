@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
-import { Search } from '../pages/SearchView';
+import { Search } from '../pages/search-view';
 
 describe('SearchView Component', () => {
   it('render searchView component', () => {

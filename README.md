@@ -22,12 +22,12 @@ This project utilizes [PokeAPI](https://pokeapi.co/), which provides access to a
 
 ## Tech Stack
 
- | Category  | Technology                                                                                                                |
- |-----------|---------------------------------------------------------------------------------------------------------------------------|
- | Frontend  | [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/) |
- | Tooling   | [Vite](https://vite.dev/), [Vitest](https://vitest.dev/), [Prettier](https://prettier.io/), [ESLint](https://eslint.org/) |
- | Testing   | [Vitest](https://vitest.dev/)                                                                                             |
- | Git Hooks | [Husky](https://typicode.github.io/husky/)                                                                                |
+| Category  | Technology                                                                                                                |
+| --------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Frontend  | [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)                                                |
+| Tooling   | [Vite](https://vite.dev/), [Vitest](https://vitest.dev/), [Prettier](https://prettier.io/), [ESLint](https://eslint.org/) |
+| Testing   | [Vitest](https://vitest.dev/)                                                                                             |
+| Git Hooks | [Husky](https://typicode.github.io/husky/)                                                                                |
 
 ## How to Run the Project Locally
 

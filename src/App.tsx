@@ -1,7 +1,7 @@
 import { Component, type ReactNode } from 'react';
-import { Search } from './pages/SearchView';
 import ButtonError from './components/ButtonError';
 import Footer from './components/Footer';
+import Search from './pages/search-view';
 
 class App extends Component {
   state = {

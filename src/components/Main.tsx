@@ -2,7 +2,7 @@ import { Component, type ReactNode } from 'react';
 import Input from './Input';
 import Button from './Button';
 import { PokemonService } from '../services/pokemonService';
-import CardList from './CardList';
+import CardList from './card-list/card-list';
 import type { Pokemon } from '../types/types';
 
 interface MainProps {
