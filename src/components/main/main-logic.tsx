@@ -1,7 +1,8 @@
-import { useState, useCallback, useEffect } from 'react';
-import { PokemonService } from '../../services/pokemonService';
+import { useCallback, useEffect, useState } from 'react';
+
 import useHandleLocalStorage from '../../hooks/use-handle-local-storage';
-import type { Pokemon } from '../../types/types';
+import { PokemonService } from '../../services/pokemonService';
+import type { Pokemon } from '../../types';
 
 const MainLogic = () => {
   const [searchText, setSearchText] = useHandleLocalStorage(

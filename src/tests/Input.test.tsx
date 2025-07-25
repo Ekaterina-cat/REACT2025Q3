@@ -1,7 +1,9 @@
+import '@testing-library/jest-dom';
+
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import '@testing-library/jest-dom';
-import Input from '../components/Input';
+
+import { Input } from '../components';
 
 describe('Input', () => {
   const mockOnChange = vi.fn();

@@ -1,7 +1,9 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Main from '../components/main/Main';
+
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+
+import { Main } from '../components';
 
 const mockPokemons = [{ name: 'Pikachu' }, { name: 'Charmander' }];
 

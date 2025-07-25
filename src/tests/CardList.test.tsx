@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import { describe, it } from 'vitest';
-import CardList from '../components/card-list/card-list';
+
+import { CardList } from '../components';
 
 describe('CatrdList Component', () => {
   it('render component cardList', () => {

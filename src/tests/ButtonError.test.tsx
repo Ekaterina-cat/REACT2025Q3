@@ -1,6 +1,7 @@
-import { describe, expect, it, vi } from 'vitest';
-import ButtonError from '../components/ButtonError';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+
+import { ButtonError } from '../components';
 
 describe('Button Error', () => {
   it('render and calls onClick', () => {

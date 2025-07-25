@@ -1,4 +1,5 @@
 import type React from 'react';
+
 import CardDetailsLogic from './card-details-logic';
 import type { CardDetailsProps } from './types/card-details.type';
 

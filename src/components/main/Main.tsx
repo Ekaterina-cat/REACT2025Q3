@@ -1,7 +1,6 @@
-import Input from '../Input';
-import Button from '../Button';
-import CardList from '../card-list/card-list';
 import type React from 'react';
+
+import { Button, CardList, Input } from '../';
 import MainLogic from './main-logic';
 
 const Main = (): React.JSX.Element => {

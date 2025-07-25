@@ -1,9 +1,8 @@
-import CardDetails from '../card-details/card-details-render';
-import type { Pokemon } from '../../types/types';
-import Spinner from '../Spinner';
-import ErrorDataRetrieval from '../ErrorDataRetrieval';
 import type React from 'react';
+
 import useLoading from '../../hooks/use-loading';
+import type { Pokemon } from '../../types';
+import { CardDetails, ErrorDataRetrieval, Spinner } from '../';
 
 interface CardListProps {
   pokemons: Pokemon[];
