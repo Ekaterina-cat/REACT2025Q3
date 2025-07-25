@@ -1,5 +1,4 @@
 export { default as Button } from './Button';
-export { default as ButtonError } from './ButtonError';
 export { default as CardDetails } from './card-details/card-details-render';
 export { default as CardList } from './card-list/card-list';
 export { default as ErrorDataRetrieval } from './ErrorDataRetrieval';
