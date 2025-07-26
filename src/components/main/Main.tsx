@@ -9,7 +9,7 @@ const Main = (): React.JSX.Element => {
 
   return (
     <>
-      <main className="m-auto">
+      <section className="m-auto">
         <div className="flex flex-row justify-end gap-4 mb-10">
           <Input value={searchText} onChange={handleInputChange} />
           <Button onClick={handleSearch} />
@@ -17,7 +17,7 @@ const Main = (): React.JSX.Element => {
         <div>
           <CardList pokemons={filteredPokemons} />
         </div>
-      </main>
+      </section>
     </>
   );
 };

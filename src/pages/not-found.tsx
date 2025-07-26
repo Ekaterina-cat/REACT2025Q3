@@ -1,6 +1,6 @@
-import type { JSX } from 'react';
+import type React from 'react';
 
-export const NotFound = (): JSX.Element => {
+export const NotFound = (): React.JSX.Element => {
   return <div>NotFound</div>;
 };
 
