@@ -14,8 +14,10 @@ const ItemContact = ({
   text,
 }: ItemContactProps): React.JSX.Element => {
   return (
-    <li className="font-serif">
-      {imgSrc && <img src={imgSrc} alt={imgAlt || 'Contact icon'} />}
+    <li className="flex flex-row font-serif gap-2">
+      {imgSrc && (
+        <img src={imgSrc} alt={imgAlt || 'Contact icon'} className="w-7" />
+      )}
       <a href={href}>{text}</a>
     </li>
   );

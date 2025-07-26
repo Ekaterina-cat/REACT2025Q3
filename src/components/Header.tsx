@@ -1,4 +1,5 @@
 import type React from 'react';
+import { NavLink } from 'react-router';
 
 const Header = (): React.JSX.Element => {
   return (
@@ -15,6 +16,14 @@ const Header = (): React.JSX.Element => {
         <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-yellow-900 font-bold flex-grow">
           Search Engine Pokemon
         </h1>
+        <nav className="flex flex-row gap-4">
+          <NavLink to="/page=1" end>
+            <img src="icon-home.png" alt="icon-home" className="w-15" />
+          </NavLink>
+          <NavLink to="/aboutme" end>
+            <img src="icon-about-me.png" alt="icon-about-me" className="w-15" />
+          </NavLink>
+        </nav>
       </header>
     </>
   );

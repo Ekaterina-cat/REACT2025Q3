@@ -1,24 +1,24 @@
 export const contacts = [
   {
-    imgSrc: 'path/to/image1.jpg',
+    imgSrc: 'icon-email.png',
     imgAlt: 'Email icon',
     href: 'https://workspace.google.com/intl/ru/gmail/',
     text: 'ekaterinaaleks9@gmail.com',
   },
   {
-    imgSrc: 'path/to/image2.jpg',
+    imgSrc: 'icon-github.png',
     imgAlt: 'GitHub icon',
     href: 'https://github.com/Ekaterina-cat',
     text: 'Ekaterina-cat',
   },
   {
-    imgSrc: 'path/to/image3.jpg',
+    imgSrc: 'icon-discord.png',
     imgAlt: 'Discord icon',
     href: 'https://discord.com/channels/@me',
     text: '@EkaterinaCat#9858',
   },
   {
-    imgSrc: 'path/to/image4.jpg',
+    imgSrc: 'icon-phone.png',
     imgAlt: 'Phone icon',
     href: 'tel:+375298824888',
     text: '+375 29 882-48-88',

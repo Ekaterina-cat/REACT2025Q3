@@ -7,14 +7,18 @@ const AboutMe = (): React.JSX.Element => {
   return (
     <>
       <section className="flex flex-row justify-center m-auto w-8/12 gap-3.5">
-        <div>
-          <img src="" alt="" />
+        <div className="flex flex-col gap-3.5">
+          <img
+            src="foto-for-cv.JPG"
+            alt="foto-for-cv"
+            className="h-36 rounded-lg self-center"
+          />
           <div>
             <div>
               <h2 className="uppercase font-bold text-xl font-mono">
                 contacts
               </h2>
-              <ul>
+              <ul className="flex flex-col gap-3">
                 {contacts.map((contact, index) => (
                   <ItemContact
                     key={index}
@@ -73,8 +77,8 @@ const AboutMe = (): React.JSX.Element => {
             </div>
           </div>
         </div>
-        <div>
-          <div>
+        <div className="flex flex-col gap-3.5">
+          <div className="h-36">
             <h1 className="uppercase font-bold text-xl font-mono">
               Katsiaryna Dounar
             </h1>

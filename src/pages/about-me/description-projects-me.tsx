@@ -5,11 +5,18 @@ const DescriptionProjectMe = (): React.JSX.Element => {
     <>
       <div className="flex flex-col gap-3.5">
         <div className="flex flex-row gap-2">
-          <a href=" https://rolling-scopes-school.github.io/ekaterina-cat-JSFE2024Q4/christmas-shop/home.html">
+          <a
+            href=" https://rolling-scopes-school.github.io/ekaterina-cat-JSFE2024Q4/christmas-shop/home.html"
+            className="w-25"
+          >
             Christmas Shop
           </a>
-          <img src="" alt="" />
-          <div className="flex flex-col gap-4 w-1/3">
+          <img
+            src="icon-chris-shop.png"
+            alt="icon-chris-shop"
+            className="w-30"
+          />
+          <div className="flex flex-col gap-4">
             <h4>
               <strong>Christmas Shop</strong> - daptive Website for a Christmas
               Toy Shop
@@ -36,10 +43,17 @@ const DescriptionProjectMe = (): React.JSX.Element => {
           </div>
         </div>
         <div className="flex flex-row gap-2">
-          <a href=" https://rolling-scopes-school.github.io/ekaterina-cat-JSFE2024Q4/simon-says">
+          <a
+            href=" https://rolling-scopes-school.github.io/ekaterina-cat-JSFE2024Q4/simon-says"
+            className="w-20"
+          >
             Simon Says
           </a>
-          <img src="" alt="" />
+          <img
+            src="icon-simon-says.png"
+            alt="icon-simon-says"
+            className="h-25"
+          />
           <div className="flex flex-col gap-4">
             <h4>
               The task is a variant of the classical
@@ -58,10 +72,13 @@ const DescriptionProjectMe = (): React.JSX.Element => {
           </div>
         </div>
         <div className="flex flex-row gap-2">
-          <a href=" https://rolling-scopes-school.github.io/ekaterina-cat-JSFE2023Q4/hangman/">
+          <a
+            href=" https://rolling-scopes-school.github.io/ekaterina-cat-JSFE2023Q4/hangman/"
+            className="w-25"
+          >
             Hangman
           </a>
-          <img src="" alt="" />
+          <img src="icon-hangman.png" alt="icon-hangman" className="h-20" />
           <div className="flex flex-col gap-4">
             <h4>
               <strong>Hangman</strong> is a classic word game in which you must
