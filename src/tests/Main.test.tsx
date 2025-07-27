@@ -1,23 +1,33 @@
 import '@testing-library/jest-dom';
 
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Main } from '../components';
+import { ROUTE_PATH } from '../routers/constants/routers';
 
 const mockPokemons = [{ name: 'Pikachu' }, { name: 'Charmander' }];
 
 describe('Main Component', () => {
   const setupComponent = () => {
     window.fetch = vi.fn().mockResolvedValue(mockPokemons);
-    render(<Main />);
+    render(
+      <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
+        <Main />
+      </MemoryRouter>
+    );
     const input = screen.getByRole('textbox');
     const button = screen.getByRole('button');
     return { input, button };
   };
 
   it('renders main component', () => {
-    render(<Main />);
+    render(
+      <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
+        <Main />
+      </MemoryRouter>
+    );
   });
 
   it('saves searchText to localStorage', async () => {

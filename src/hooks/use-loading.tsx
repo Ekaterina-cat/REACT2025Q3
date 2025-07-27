@@ -4,7 +4,7 @@ interface LoadingState {
   isLoading: boolean;
 }
 
-export const useLoading = (initState: boolean = true): LoadingState => {
+const useLoading = (initState: boolean = true): LoadingState => {
   const [isLoading, setIsLoading] = useState(initState);
 
   useEffect(() => {
