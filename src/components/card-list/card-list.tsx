@@ -1,6 +1,7 @@
 import type React from 'react';
 
 import useLoading from '../../hooks/use-loading';
+import usePagination from '../../hooks/use-pagination';
 import type { Pokemon } from '../../types';
 import { CardDetails, ErrorDataRetrieval, Spinner } from '../';
 
@@ -10,6 +11,10 @@ interface CardListProps {
 
 const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
   const { isLoading } = useLoading();
+  const { currentCards, numPage, currentPage, setCurrentPage } = usePagination(
+    pokemons,
+    5
+  );
   if (!pokemons || pokemons.length === 0) {
     return <ErrorDataRetrieval />;
   }
@@ -18,7 +23,7 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
   }
   return (
     <section className="flex flex-col gap-10 mb-10">
-      {pokemons.map((pokemon, index) => (
+      {currentCards.map((pokemon, index) => (
         <div key={pokemon.url}>
           <div className="flex flex-row flex-wrap justify-around">
             <h3 className="justify-self-center self-center font-mono font-bold text-2xl w-1/6">
@@ -29,6 +34,20 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
           {index < pokemons.length - 1 && <hr />}
         </div>
       ))}
+      <nav>
+        <ul className="flex justify-center gap-2">
+          {numPage.map((num) => (
+            <li key={num}>
+              <button
+                onClick={() => setCurrentPage(num)}
+                className={`px-3 py-1 rounded ${currentPage === num ? 'bg-gray-500 text-white' : 'bg-gray-200'}`}
+              >
+                {num}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </section>
   );
 };
