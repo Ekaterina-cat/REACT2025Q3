@@ -17,7 +17,7 @@ const PokemonDetail = (): React.JSX.Element => {
   }
 
   return (
-    <section className="w-1/2 p-4 mt-20rem">
+    <section className="w-1/2 p-4 mt-20rem" data-testid="CardDetails">
       <div className="flex flex-row justify-between">
         <h2 className="text-3xl font-bold mb-4">
           Detailed Description Of The Pokemon
