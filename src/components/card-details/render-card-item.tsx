@@ -1,6 +1,6 @@
 import type React from 'react';
 
-import CardDetailsLogic from './card-details-logic';
+import CardDetailsLogic from './logic-card-item';
 import type { CardDetailsProps } from './types/card-details.type';
 
 const CardDetails = ({ url }: CardDetailsProps): React.JSX.Element => {
