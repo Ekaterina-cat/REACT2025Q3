@@ -1,5 +1,5 @@
 import type React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 
 import { ErrorBoundary, Footer, Header } from './components';
 import PokemonDetail from './components/details-pokemon/render-details-pokemon';
@@ -14,6 +14,10 @@ const App = (): React.JSX.Element => {
           <Header />
           <main className="main-container">
             <Routes>
+              <Route
+                path="/"
+                element={<Navigate to={ROUTE_PATH.MAIN} replace />}
+              />
               <Route path={ROUTE_PATH.MAIN} element={<Search />} />
               <Route
                 path={ROUTE_PATH.DETAILSPOKEMON}
