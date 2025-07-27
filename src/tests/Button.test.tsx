@@ -1,6 +1,7 @@
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
-import Button from '../components/Button';
+
+import { Button } from '../components';
 
 describe('Button', () => {
   it('render and calls onClick', () => {
