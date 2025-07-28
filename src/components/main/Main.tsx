@@ -9,7 +9,7 @@ const Main = (): React.JSX.Element => {
 
   return (
     <>
-      <section className="m-auto">
+      <section className="m-auto w-4/5">
         <div className="flex flex-row justify-end gap-4 mb-10">
           <Input value={searchText} onChange={handleInputChange} />
           <Button onClick={handleSearch} />

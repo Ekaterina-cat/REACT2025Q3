@@ -30,21 +30,22 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
   };
 
   return (
-    <section className="flex flex-col gap-10 mb-10">
-      {currentCards.map((pokemon, index) => (
-        <div key={pokemon.url}>
-          <div
-            className="flex flex-row flex-wrap justify-around cursor-pointer"
-            onClick={() => handlePokemonClick(pokemon.name.toLowerCase())}
-          >
-            <h3 className="justify-self-center self-center font-mono font-bold text-2xl w-1/6">
-              {pokemon.name.toUpperCase()}
-            </h3>
-            <CardDetails url={pokemon.url} />
+    <section className="grid grid-cols-1 gap-4 mb-10 overflow-auto">
+      <div className="flex flex-row justify-center gap-4 flex-wrap">
+        {currentCards.map((pokemon) => (
+          <div key={pokemon.url}>
+            <div
+              className="grid grid-cols-1 gap-4 rounded-lg bg-primary-8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300"
+              onClick={() => handlePokemonClick(pokemon.name.toLowerCase())}
+            >
+              <h3 className="text-center font-mono font-bold text-2xl text-white">
+                {pokemon.name.toUpperCase()}
+              </h3>
+              <CardDetails url={pokemon.url} />
+            </div>
           </div>
-          {index < pokemons.length - 1 && <hr />}
-        </div>
-      ))}
+        ))}
+      </div>
 
       <nav>
         <ul className="flex justify-center gap-2">
@@ -52,7 +53,7 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
             <li key={num}>
               <button
                 onClick={() => setCurrentPage(num)}
-                className={`px-3 py-1 rounded ${currentPage === num ? 'bg-gray-500 text-white' : 'bg-gray-200'}`}
+                className={`px-3 py-1 rounded ${currentPage === num ? 'bg-gray-6 text-white' : 'bg-gray-8'}`}
               >
                 {num}
               </button>

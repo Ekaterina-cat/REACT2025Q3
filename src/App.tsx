@@ -12,7 +12,7 @@ const App = (): React.JSX.Element => {
       <ErrorBoundary>
         <BrowserRouter>
           <Header />
-          <main className="main-container">
+          <main className="grid">
             <Routes>
               <Route
                 path="/"
@@ -22,7 +22,7 @@ const App = (): React.JSX.Element => {
               <Route
                 path={ROUTE_PATH.DETAILSPOKEMON}
                 element={
-                  <div className="flex flex-row justify-between">
+                  <div className="grid grid-cols-2 gap-10">
                     <Search />
                     <PokemonDetail />
                   </div>

@@ -6,19 +6,19 @@ import { codeString, contacts, skills, softSkill } from './types/types';
 const AboutMe = (): React.JSX.Element => {
   return (
     <>
-      <section className="flex flex-row justify-center m-auto w-8/12 gap-3.5">
-        <div className="flex flex-col gap-3.5">
+      <section className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-4 text-white m-auto w-4/5">
+        <div className="grid grid-cols-1">
           <img
             src="foto-for-cv.JPG"
             alt="foto-for-cv"
             className="h-36 rounded-lg self-center"
           />
-          <div>
+          <div className="grid grid-cols-1 gap-10 p-6 bg-primary-8 rounded-lg">
             <div>
-              <h2 className="uppercase font-bold text-xl font-mono">
+              <h2 className="uppercase font-bold text-xl font-mono mb-2">
                 contacts
               </h2>
-              <ul className="flex flex-col gap-3">
+              <ul className="grid grid-cols-1 gap-2">
                 {contacts.map((contact, index) => (
                   <ItemContact
                     key={index}
@@ -31,18 +31,20 @@ const AboutMe = (): React.JSX.Element => {
               </ul>
             </div>
             <div>
-              <h2 className="uppercase font-bold text-xl font-mono">
+              <h2 className="uppercase font-bold text-xl font-mono mb-2">
                 soft Skills
               </h2>
-              <ul>
+              <ul className="grid grid-cols-1 gap-2">
                 {softSkill.map((skill, index) => (
                   <li key={index}>{skill}</li>
                 ))}
               </ul>
             </div>
             <div>
-              <h2 className="uppercase font-bold text-xl">technical skills</h2>
-              <ul>
+              <h2 className="uppercase font-bold text-xl mb-2">
+                technical skills
+              </h2>
+              <ul className="grid grid-cols-1 gap-2">
                 {skills.map((skill, index) => (
                   <ItemTechnicalSkill
                     key={index}
@@ -53,23 +55,23 @@ const AboutMe = (): React.JSX.Element => {
               </ul>
             </div>
             <div>
-              <h2 className="uppercase font-bold text-xl font-mono">
+              <h2 className="uppercase font-bold text-xl font-mono mb-2">
                 code example
               </h2>
-              <pre>
+              <pre className="bg-primary-8">
                 <code>{codeString}</code>
               </pre>
             </div>
             <div>
-              <h2 className="uppercase font-bold text-xl font-mono">
+              <h2 className="uppercase font-bold text-xl font-mono mb-2">
                 languages
               </h2>
-              <ul>
-                <li className="font-serif">
+              <ul className="grid grid-cols-1 gap-2">
+                <li className="flex flex-row gap-2 font-serif">
                   <h3>Russian</h3>
                   <p>native</p>
                 </li>
-                <li className="font-serif">
+                <li className="flex flex-row gap-2 font-serif">
                   <h3>English</h3>
                   <p>A2 and I continue to study further</p>
                 </li>
@@ -77,12 +79,12 @@ const AboutMe = (): React.JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-3.5">
-          <div className="h-36">
-            <h1 className="uppercase font-bold text-xl font-mono">
+        <div className="grid grid-cols-1 gap-4 p-6 bg-primary-8 rounded-lg">
+          <div className="bg-primary-8 p-6 rounded shadow h-40">
+            <h1 className="uppercase font-bold text-xl font-mono mb-2 text-white">
               Katsiaryna Dounar
             </h1>
-            <p></p>
+            <p className="text-gray-600">RSSchool student</p>
           </div>
           <DescriptionAboutMe />
         </div>

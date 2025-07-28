@@ -7,8 +7,9 @@ describe('Button', () => {
   it('render and calls onClick', () => {
     const mockOnClick = vi.fn();
     render(<Button onClick={mockOnClick} />);
-    expect(screen.getByText('SEARCH')).toBeDefined();
-    fireEvent.click(screen.getByText('SEARCH'));
+    const searchButton = screen.getByAltText('search-magnifier');
+    expect(searchButton).toBeDefined();
+    fireEvent.click(searchButton);
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 });

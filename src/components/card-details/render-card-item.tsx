@@ -11,23 +11,23 @@ const CardDetails = ({ url }: CardDetailsProps): React.JSX.Element => {
   }
   return (
     <>
-      <ul>
+      <ul className="grid grid-cols-1 place-items-center gap-1 max-w-2xl mx-auto text-white text-xs">
         <li className="flex flex-row gap-2">
-          <h3 className="font-mono text-1.5xl">Height:</h3>
+          <h3 className="font-mono">Height:</h3>
           <p>{details.height}</p>
         </li>
         <li className="flex flex-row gap-2">
-          <h3 className="font-mono text-1.5xl">Weight:</h3>
+          <h3 className="font-mono">Weight:</h3>
           <p>{details.weight}</p>
         </li>
         <li className="flex flex-row gap-2">
-          <h3 className="font-mono text-1.5xl">Types:</h3>
+          <h3 className="font-mono">Types:</h3>
           <p>
             {details.types.map((typeInfo) => typeInfo.type.name).join(', ')}
           </p>
         </li>
         <li className="flex flex-row gap-2">
-          <h3 className="font-mono text-1.5xl">Abilities:</h3>
+          <h3 className="font-mono">Abilities:</h3>
           <p>
             {details.abilities
               .map((abilityInfo) => abilityInfo.ability.name)
@@ -35,7 +35,7 @@ const CardDetails = ({ url }: CardDetailsProps): React.JSX.Element => {
           </p>
         </li>
         <li className="flex flex-row gap-2">
-          <h3 className="font-mono text-1.5xl">Stats:</h3>
+          <h3 className="font-mono">Stats:</h3>
           <p>
             {details.stats
               .map((statInfo) => `${statInfo.stat.name}: ${statInfo.base_stat}`)
@@ -43,7 +43,7 @@ const CardDetails = ({ url }: CardDetailsProps): React.JSX.Element => {
           </p>
         </li>
         <li className="flex flex-row gap-2">
-          <h3 className="font-mono text-1.5xl">Moves:</h3>
+          <h3 className="font-mono">Moves:</h3>
           <p>
             {details.moves
               .slice(0, 5)

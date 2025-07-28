@@ -11,8 +11,8 @@ const Input = ({ value, onChange }: InputProps): React.JSX.Element => {
       type="text"
       value={value}
       onChange={onChange}
-      placeholder="Search..."
-      className="bg-gray-200 p-2 rounded"
+      placeholder="Search pokemon..."
+      className="bg-gray-8 p-2 rounded text-white text-xs"
     />
   );
 };

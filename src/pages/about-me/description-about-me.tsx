@@ -5,15 +5,22 @@ import DescriptionProjectMe from './description-projects-me';
 const DescriptionAboutMe = (): React.JSX.Element => {
   return (
     <>
-      <div>
-        <div>
-          <h2 className="uppercase font-bold text-xl font-mono">
+      <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-2">
+          <h2 className="uppercase font-bold text-xl font-mono mb-2">
             Personal Statement
           </h2>
-          <p></p>
+          <p>
+            A student aspiring to grow in the field of front-end development. I
+            have basic knowledge of HTML, CSS, JavaScript, and TypeScript, and I
+            am currently learning React. I am looking for an opportunity to
+            apply my skills and learn from professionals in real projects.
+          </p>
         </div>
-        <div>
-          <h2 className="uppercase font-bold text-xl font-mono">Education</h2>
+        <div className="grid grid-cols-1 gap-2">
+          <h2 className="uppercase font-bold text-xl font-mono mb-2">
+            Education
+          </h2>
           <p className="font-bold font-mono">
             Belarusian State University, Faculty of Geography
           </p>
@@ -22,8 +29,10 @@ const DescriptionAboutMe = (): React.JSX.Element => {
           </p>
         </div>
         <div>
-          <h2 className="uppercase font-bold text-xl font-mono">Courses</h2>
-          <ul>
+          <h2 className="uppercase font-bold text-xl font-mono mb-2">
+            Courses
+          </h2>
+          <ul className="grid grid-cols-1 gap-2">
             <li>
               <h3>RS School STAGE 0</h3>
             </li>
@@ -36,7 +45,9 @@ const DescriptionAboutMe = (): React.JSX.Element => {
           </ul>
         </div>
         <div>
-          <h2 className="uppercase font-bold text-xl font-mono">Projects</h2>
+          <h2 className="uppercase font-bold text-xl font-mono mb-2">
+            Projects
+          </h2>
           <DescriptionProjectMe />
         </div>
       </div>
