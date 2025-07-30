@@ -6,12 +6,12 @@ import {
   useState,
 } from 'react';
 
-export interface IThemeContext {
+interface IThemeContext {
   isLight: boolean;
   toggleTheme: () => void;
 }
 
-export interface ThemeProviderProps {
+interface ThemeProviderProps {
   children: ReactNode;
 }
 
