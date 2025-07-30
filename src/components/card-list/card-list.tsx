@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 
 import { useLoading, usePagination } from '../../hooks';
 import type { Pokemon } from '../../types';
-import { CardDetails, ErrorDataRetrieval, Spinner } from '../';
+import { CardDetails, Checkbox, ErrorDataRetrieval, Spinner } from '../';
 
 interface CardListProps {
   pokemons: Pokemon[];
@@ -33,16 +33,17 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
     <section className="grid grid-cols-1 gap-4 mb-10 overflow-auto">
       <div className="flex flex-row justify-center gap-4 flex-wrap">
         {currentCards.map((pokemon) => (
-          <div key={pokemon.url} className="dark:border-2 dark:border-gray-8">
-            <div
-              className="grid grid-cols-1 gap-4 rounded-lg bg-primary-8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300 dark:bg-white "
-              onClick={() => handlePokemonClick(pokemon.name.toLowerCase())}
-            >
+          <div
+            key={pokemon.url}
+            className="grid grid-cols-1 gap-4 rounded-lg bg-primary-8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300 dark:bg-white "
+          >
+            <div onClick={() => handlePokemonClick(pokemon.name.toLowerCase())}>
               <h3 className="text-center font-mono font-bold text-2xl text-white dark:text-black">
                 {pokemon.name.toUpperCase()}
               </h3>
               <CardDetails url={pokemon.url} />
             </div>
+            <Checkbox />
           </div>
         ))}
       </div>
