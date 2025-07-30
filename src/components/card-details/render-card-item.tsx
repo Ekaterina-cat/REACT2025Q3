@@ -11,7 +11,7 @@ const CardDetails = ({ url }: CardDetailsProps): React.JSX.Element => {
   }
   return (
     <>
-      <ul className="grid grid-cols-1 place-items-center gap-1 max-w-2xl mx-auto text-white text-xs">
+      <ul className="grid grid-cols-1 place-items-center gap-1 max-w-2xl mx-auto text-white text-xs dark:text-black">
         <li className="flex flex-row gap-2">
           <h3 className="font-mono">Height:</h3>
           <p>{details.height}</p>

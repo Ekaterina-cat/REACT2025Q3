@@ -33,12 +33,12 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
     <section className="grid grid-cols-1 gap-4 mb-10 overflow-auto">
       <div className="flex flex-row justify-center gap-4 flex-wrap">
         {currentCards.map((pokemon) => (
-          <div key={pokemon.url}>
+          <div key={pokemon.url} className="dark:border-2 dark:border-gray-8">
             <div
-              className="grid grid-cols-1 gap-4 rounded-lg bg-primary-8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300"
+              className="grid grid-cols-1 gap-4 rounded-lg bg-primary-8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300 dark:bg-white "
               onClick={() => handlePokemonClick(pokemon.name.toLowerCase())}
             >
-              <h3 className="text-center font-mono font-bold text-2xl text-white">
+              <h3 className="text-center font-mono font-bold text-2xl text-white dark:text-black">
                 {pokemon.name.toUpperCase()}
               </h3>
               <CardDetails url={pokemon.url} />
@@ -53,7 +53,7 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
             <li key={num}>
               <button
                 onClick={() => setCurrentPage(num)}
-                className={`px-3 py-1 rounded ${currentPage === num ? 'bg-gray-6 text-white' : 'bg-gray-8'}`}
+                className={`px-3 py-1 rounded ${currentPage === num ? 'bg-gray-6 text-white dark:text-black dark:bg-blue-100' : 'bg-gray-8 dark:bg-white'}`}
               >
                 {num}
               </button>

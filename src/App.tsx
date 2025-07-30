@@ -10,30 +10,32 @@ const App = (): React.JSX.Element => {
   return (
     <>
       <ErrorBoundary>
-        <BrowserRouter>
-          <Header />
-          <main className="grid">
-            <Routes>
-              <Route
-                path="/"
-                element={<Navigate to={ROUTE_PATH.MAIN} replace />}
-              />
-              <Route path={ROUTE_PATH.MAIN} element={<Search />} />
-              <Route
-                path={ROUTE_PATH.DETAILSPOKEMON}
-                element={
-                  <div className="grid grid-cols-2 gap-10">
-                    <Search />
-                    <PokemonDetail />
-                  </div>
-                }
-              />
-              <Route path={ROUTE_PATH.NOT_FOUND} element={<NotFound />} />
-              <Route path={ROUTE_PATH.ABOUTME} element={<AboutMe />} />
-            </Routes>
-          </main>
-          <Footer />
-        </BrowserRouter>
+        <div className="min-h-screen bg-base-fon transition-colors dark:bg-white">
+          <BrowserRouter>
+            <Header />
+            <main className="grid">
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Navigate to={ROUTE_PATH.MAIN} replace />}
+                />
+                <Route path={ROUTE_PATH.MAIN} element={<Search />} />
+                <Route
+                  path={ROUTE_PATH.DETAILSPOKEMON}
+                  element={
+                    <div className="grid grid-cols-2 gap-10">
+                      <Search />
+                      <PokemonDetail />
+                    </div>
+                  }
+                />
+                <Route path={ROUTE_PATH.NOT_FOUND} element={<NotFound />} />
+                <Route path={ROUTE_PATH.ABOUTME} element={<AboutMe />} />
+              </Routes>
+            </main>
+            <Footer />
+          </BrowserRouter>
+        </div>
       </ErrorBoundary>
     </>
   );

@@ -1,6 +1,8 @@
 import type React from 'react';
 import { NavLink } from 'react-router';
 
+import ButtonSwitchTheme from './button-switch-theme';
+
 const Header = (): React.JSX.Element => {
   return (
     <>
@@ -10,22 +12,34 @@ const Header = (): React.JSX.Element => {
           backgroundImage: "url('fon_header.png')",
         }}
       >
-        <nav className="flex flex-row gap-4">
-          <NavLink to="/page=1" end>
-            <img src="icon-home.png" alt="icon-home" className="w-15 invert" />
-          </NavLink>
-          <NavLink to="/aboutme" end>
-            <img
-              src="icon-about-me.png"
-              alt="icon-about-me"
-              className="w-15 invert"
-            />
-          </NavLink>
-        </nav>
+        <div className="flex flex-row justify-between">
+          <nav className="flex flex-row gap-4">
+            <NavLink to="/page=1" end>
+              <img
+                src="icon-home.png"
+                alt="icon-home"
+                className="w-15 invert"
+              />
+            </NavLink>
+            <NavLink to="/aboutme" end>
+              <img
+                src="icon-about-me.png"
+                alt="icon-about-me"
+                className="w-15 invert"
+              />
+            </NavLink>
+          </nav>
+          <ButtonSwitchTheme />
+        </div>
         <div className="grid place-items-center gap-0.5">
           <img src="header-pokemon.png" alt="header-pokemon" />
-          <p className="text-white">Project developed by RSSchool student</p>
-          <h1 className="font-sans uppercase text-white font-bold flex-grow text-center">
+          <p className="text-white  dark:text-black">
+            Project developed by RSSchool student
+          </p>
+          <h1
+            className="font-sans uppercase text-white font-bold flex-grow text-center  dark:text-black
+          "
+          >
             Search Engine Pokemon
           </h1>
           <img

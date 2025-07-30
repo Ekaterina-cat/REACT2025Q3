@@ -1,9 +1,14 @@
 @import 'tailwindcss';
 
-@theme{
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /*Основной цвет фона*/
+  --color-base-fon: hsla(201, 74%, 5%, 1);
+
   /* Основной цвет */
   --color-primary: hsl(196, 76%, 11%);
-  
+
   /* Градиент от светлого к тёмному */
   --color-primary-0: hsl(196, 76%, 90%);
   --color-primary-1: hsl(196, 76%, 80%);
@@ -41,7 +46,6 @@ body {
   margin: 0 auto;
   width: 100%;
   min-height: 100vh;
-  background-color: hsla(201, 74%, 5%, 1);
 }
 
 h1 {

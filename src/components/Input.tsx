@@ -12,7 +12,7 @@ const Input = ({ value, onChange }: InputProps): React.JSX.Element => {
       value={value}
       onChange={onChange}
       placeholder="Search pokemon..."
-      className="bg-gray-8 p-2 rounded text-white text-xs"
+      className="bg-gray-8 p-2 rounded text-white text-xs dark:bg-white dark:text-black dark:border-black dark:border-2"
     />
   );
 };
