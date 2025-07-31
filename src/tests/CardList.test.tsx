@@ -1,11 +1,14 @@
 import '@testing-library/jest-dom';
 
+import { configureStore } from '@reduxjs/toolkit';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { CardList } from '../components';
 import { ROUTE_PATH } from '../routers/constants/routers';
+import type { CheckboxState } from '../types';
 
 const mockNavigate = vi.fn();
 
@@ -25,15 +28,23 @@ const mockPokemons = [
   { name: 'CHARMANDER', url: 'https://example.com/charmander' },
 ];
 
+const mockStore = configureStore({
+  reducer: {
+    checkbox: (state: CheckboxState = {}) => state,
+  },
+});
+
 describe('CatrdList Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
   it('render component cardList', async () => {
     render(
-      <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
-        <CardList pokemons={mockPokemons} />
-      </MemoryRouter>
+      <Provider store={mockStore}>
+        <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
+          <CardList pokemons={mockPokemons} />
+        </MemoryRouter>
+      </Provider>
     );
     expect(
       screen.getByRole('status', { name: /загрузка.../i })
@@ -50,9 +61,11 @@ describe('CatrdList Component', () => {
 
   it('should call navigate when clicking on a pokemon', async () => {
     render(
-      <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
-        <CardList pokemons={mockPokemons} />
-      </MemoryRouter>
+      <Provider store={mockStore}>
+        <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
+          <CardList pokemons={mockPokemons} />
+        </MemoryRouter>
+      </Provider>
     );
     expect(
       screen.getByRole('status', { name: /загрузка.../i })

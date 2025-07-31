@@ -43,7 +43,7 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
               </h3>
               <CardDetails url={pokemon.url} />
             </div>
-            <Checkbox />
+            <Checkbox id={pokemon.url} />
           </div>
         ))}
       </div>

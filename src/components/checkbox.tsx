@@ -1,11 +1,21 @@
 import type React from 'react';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Checkbox = (): React.JSX.Element => {
-  const [isChecked, setIsChecked] = useState(false);
+import { toggleCheckbox } from '../store/checkbox-slice';
+import type { CheckboxState, RootState } from '../types';
+
+interface CheckboxProps {
+  id: string;
+}
+
+const Checkbox = ({ id }: CheckboxProps): React.JSX.Element => {
+  const isChecked = useSelector(
+    (state: RootState) => (state.checkbox as CheckboxState)?.[id] ?? false
+  );
+  const dispatch = useDispatch();
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+    dispatch(toggleCheckbox(id));
   };
   return (
     <>
