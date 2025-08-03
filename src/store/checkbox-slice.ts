@@ -16,8 +16,14 @@ export const checkboxSlice = createSlice({
       state.checkboxes[id] = !state.checkboxes[id];
       state.selectedCount += state.checkboxes[id] ? 1 : -1;
     },
+    resetCheckboxes: (state) => {
+      Object.keys(state.checkboxes).forEach((id) => {
+        state.checkboxes[id] = false;
+      });
+      state.selectedCount = 0;
+    },
   },
 });
 
-export const { toggleCheckbox } = checkboxSlice.actions;
+export const { toggleCheckbox, resetCheckboxes } = checkboxSlice.actions;
 export default checkboxSlice.reducer;
