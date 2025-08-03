@@ -1,1 +1,1 @@
-export type { Pokemon, RootState, CheckboxState } from './types';
+export type { Pokemon, RootState, CheckboxState, DetailsRowCSV } from './types';

@@ -13,3 +13,5 @@ export interface CheckboxState {
 export interface RootState {
   checkbox: CheckboxState;
 }
+
+export type DetailsRowCSV = Record<string, string | number | boolean>;

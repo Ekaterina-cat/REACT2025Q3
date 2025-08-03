@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { fetchDataDetailsPokemon } from '../../services/pokemonService';
 import type {
   CardDetailsProps,
   PokemonDetails,
@@ -10,16 +11,8 @@ const CardDetailsLogic = ({ url }: CardDetailsProps) => {
 
   useEffect(() => {
     const fetchPokemonDetails = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setDetails(data);
-      } catch (error) {
-        console.error('Error fetching details: ', error);
-      }
+      const data = await fetchDataDetailsPokemon<PokemonDetails>(url);
+      setDetails(data);
     };
 
     fetchPokemonDetails();
