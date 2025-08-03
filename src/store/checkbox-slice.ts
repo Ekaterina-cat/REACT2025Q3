@@ -1,10 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface ICheckboxState {
-  [key: string]: boolean;
-}
+import type { CheckboxState } from '../types';
 
-const initialState: ICheckboxState = {};
+const initialState: CheckboxState = {
+  checkboxes: {},
+  selectedCount: 0,
+};
 
 export const checkboxSlice = createSlice({
   name: 'checkbox',
@@ -12,7 +13,8 @@ export const checkboxSlice = createSlice({
   reducers: {
     toggleCheckbox: (state, action: PayloadAction<string>) => {
       const id = action.payload;
-      state[id] = !state[id];
+      state.checkboxes[id] = !state.checkboxes[id];
+      state.selectedCount += state.checkboxes[id] ? 1 : -1;
     },
   },
 });

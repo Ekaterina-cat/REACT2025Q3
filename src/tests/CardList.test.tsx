@@ -30,7 +30,8 @@ const mockPokemons = [
 
 const mockStore = configureStore({
   reducer: {
-    checkbox: (state: CheckboxState = {}) => state,
+    checkbox: (state: CheckboxState = { checkboxes: {}, selectedCount: 0 }) =>
+      state,
   },
 });
 

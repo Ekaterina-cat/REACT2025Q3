@@ -1,12 +1,17 @@
 import type React from 'react';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 
-import { ErrorBoundary, Footer, Header } from './components';
+import { ErrorBoundary, Footer, Header, Tooltip } from './components';
 import PokemonDetail from './components/details-pokemon/render-details-pokemon';
 import { AboutMe, NotFound, Search } from './pages';
 import { ROUTE_PATH } from './routers/constants/routers';
+import type { RootState } from './types';
 
 const App = (): React.JSX.Element => {
+  const selectedCount = useSelector(
+    (state: RootState) => state.checkbox.selectedCount
+  );
   return (
     <>
       <ErrorBoundary>
@@ -34,6 +39,7 @@ const App = (): React.JSX.Element => {
               </Routes>
             </main>
             <Footer />
+            {selectedCount > 0 && <Tooltip selectedCount={selectedCount} />}
           </BrowserRouter>
         </div>
       </ErrorBoundary>

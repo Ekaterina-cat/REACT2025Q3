@@ -4,7 +4,10 @@ export interface Pokemon {
 }
 
 export interface CheckboxState {
-  [key: string]: boolean;
+  checkboxes: {
+    [key: string]: boolean;
+  };
+  selectedCount: number;
 }
 
 export interface RootState {

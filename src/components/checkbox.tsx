@@ -2,7 +2,7 @@ import type React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { toggleCheckbox } from '../store/checkbox-slice';
-import type { CheckboxState, RootState } from '../types';
+import type { RootState } from '../types';
 
 interface CheckboxProps {
   id: string;
@@ -10,7 +10,7 @@ interface CheckboxProps {
 
 const Checkbox = ({ id }: CheckboxProps): React.JSX.Element => {
   const isChecked = useSelector(
-    (state: RootState) => (state.checkbox as CheckboxState)?.[id] ?? false
+    (state: RootState) => state.checkbox.checkboxes[id]
   );
   const dispatch = useDispatch();
 
