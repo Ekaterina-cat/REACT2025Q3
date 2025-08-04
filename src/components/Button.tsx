@@ -1,23 +1,22 @@
-import { Component, type ReactNode } from 'react';
+import React from 'react';
 
 interface ButtonProps {
   onClick: () => void;
 }
 
-class Button extends Component<ButtonProps> {
-  state = {
-    nameBtn: 'search',
-  };
-  render(): ReactNode {
-    return (
-      <button
-        onClick={this.props.onClick}
-        className="px-6 py-3 bg-gradient-to-r from-pink-700 to-yellow-900 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-shadow duration-700 ease-in-out transform hover:scale-105"
-      >
-        {this.state.nameBtn.toUpperCase()}
-      </button>
-    );
-  }
-}
+const Button = ({ onClick }: ButtonProps): React.JSX.Element => {
+  return (
+    <button
+      onClick={onClick}
+      className="px-6 py-3 bg-gray-8 font-bold rounded-full shadow-lg hover:shadow-xl transition-shadow duration-700 ease-in-out transform hover:scale-105 dark:bg-white dark:shadow-gray-8"
+    >
+      <img
+        src="/search-magnifier.png"
+        alt="search-magnifier"
+        className="dark:invert"
+      />
+    </button>
+  );
+};
 
 export default Button;

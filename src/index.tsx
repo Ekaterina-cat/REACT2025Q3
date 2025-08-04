@@ -1,17 +1,23 @@
+import './index.css';
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
+import { Provider } from 'react-redux';
+
 import App from './App.tsx';
-import ErrorBoundary from './components/ErrorBoundary.tsx';
+import { ThemeProvider } from './shared/context.tsx';
+import { store } from './store/store.ts';
 
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
+      <Provider store={store}>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </Provider>
     </StrictMode>
   );
 } else {

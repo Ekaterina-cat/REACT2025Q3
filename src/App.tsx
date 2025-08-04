@@ -1,34 +1,50 @@
-import { Component, type ReactNode } from 'react';
-import { Search } from './pages/SearchView';
-import ButtonError from './components/ButtonError';
-import Footer from './components/Footer';
+import type React from 'react';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 
-class App extends Component {
-  state = {
-    shouldThrowError: false,
-  };
+import { ErrorBoundary, Footer, Header, Tooltip } from './components';
+import PokemonDetail from './components/details-pokemon/render-details-pokemon';
+import { AboutMe, NotFound, Search } from './pages';
+import { ROUTE_PATH } from './routers/constants/routers';
+import type { RootState } from './types';
 
-  handleErrorButtonClick = () => {
-    this.setState({ shouldThrowError: true });
-  };
-
-  handleTryAgain = () => {
-    this.setState({ shouldThrowError: false });
-  };
-
-  render(): ReactNode {
-    if (this.state.shouldThrowError) {
-      throw new Error('This is a simulated error!');
-    }
-
-    return (
-      <>
-        <Search />
-        <ButtonError onClick={this.handleErrorButtonClick} />
-        <Footer />
-      </>
-    );
-  }
-}
+const App = (): React.JSX.Element => {
+  const selectedCount = useSelector(
+    (state: RootState) => state.checkbox.selectedCount
+  );
+  return (
+    <>
+      <ErrorBoundary>
+        <div className="min-h-screen bg-base-fon transition-colors dark:bg-white">
+          <BrowserRouter>
+            <Header />
+            <main className="grid">
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Navigate to={ROUTE_PATH.MAIN} replace />}
+                />
+                <Route path={ROUTE_PATH.MAIN} element={<Search />} />
+                <Route
+                  path={ROUTE_PATH.DETAILSPOKEMON}
+                  element={
+                    <div className="grid grid-cols-2 gap-10">
+                      <Search />
+                      <PokemonDetail />
+                    </div>
+                  }
+                />
+                <Route path={ROUTE_PATH.NOT_FOUND} element={<NotFound />} />
+                <Route path={ROUTE_PATH.ABOUTME} element={<AboutMe />} />
+              </Routes>
+            </main>
+            <Footer />
+            {selectedCount > 0 && <Tooltip selectedCount={selectedCount} />}
+          </BrowserRouter>
+        </div>
+      </ErrorBoundary>
+    </>
+  );
+};
 
 export default App;
