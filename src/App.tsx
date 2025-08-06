@@ -1,12 +1,16 @@
+import {
+  ErrorBoundary,
+  Footer,
+  Header,
+  PokemonDetail,
+  Tooltip,
+} from '@components/';
+import { AboutMe, NotFound, Search } from '@pages/index';
+import { ROUTE_PATH } from '@utils/routers';
+import type { RootState } from '@utils/types';
 import type React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
-
-import { ErrorBoundary, Footer, Header, Tooltip } from './components';
-import PokemonDetail from './components/details-pokemon/render-details-pokemon';
-import { AboutMe, NotFound, Search } from './pages';
-import { ROUTE_PATH } from './routers/constants/routers';
-import type { RootState } from './types';
 
 const App = (): React.JSX.Element => {
   const selectedCount = useSelector(

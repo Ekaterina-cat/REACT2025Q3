@@ -4,3 +4,9 @@ export { default as ItemContact } from './about-me/item-contact';
 export { default as ItemTechnicalSkill } from './about-me/item-technical-skills';
 export { default as NotFound } from './not-found';
 export { default as Search } from './search-view';
+export {
+  codeString,
+  contacts,
+  skills,
+  softSkill,
+} from './about-me/types/types';

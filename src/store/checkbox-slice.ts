@@ -1,6 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-
-import type { CheckboxState } from '../types';
+import type { CheckboxState } from '@utils/types';
 
 const initialState: CheckboxState = {
   checkboxes: {},

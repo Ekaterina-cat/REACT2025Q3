@@ -1,8 +1,7 @@
+import { toggleCheckbox } from '@store/checkbox-slice';
+import type { RootState } from '@utils/types';
 import type React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { toggleCheckbox } from '../store/checkbox-slice';
-import type { RootState } from '../types';
 
 interface CheckboxProps {
   id: string;

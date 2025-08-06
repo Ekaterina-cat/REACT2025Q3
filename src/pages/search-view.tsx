@@ -1,11 +1,10 @@
+import { BodyPage } from '@components/';
 import type React from 'react';
-
-import { Main } from '../components';
 
 const Search = (): React.JSX.Element => {
   return (
     <>
-      <Main />
+      <BodyPage />
     </>
   );
 };

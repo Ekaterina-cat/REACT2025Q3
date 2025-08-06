@@ -1,10 +1,9 @@
+import { PokemonService } from '@utils/api';
+import { useHandleLocalStorage } from '@utils/hooks';
+import type { Pokemon } from '@utils/types';
 import { useCallback, useEffect, useState } from 'react';
 
-import useHandleLocalStorage from '../../hooks/use-handle-local-storage';
-import { PokemonService } from '../../services/pokemonService';
-import type { Pokemon } from '../../types';
-
-const MainLogic = () => {
+const BodyPageLogic = () => {
   const [searchText, setSearchText] = useHandleLocalStorage(
     'savedSearchPokemon',
     ''
@@ -41,4 +40,4 @@ const MainLogic = () => {
   };
 };
 
-export default MainLogic;
+export default BodyPageLogic;

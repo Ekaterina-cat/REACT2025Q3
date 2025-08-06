@@ -1,7 +1,10 @@
+import {
+  DescriptionAboutMe,
+  ItemContact,
+  ItemTechnicalSkill,
+} from '@pages/index';
+import { codeString, contacts, skills, softSkill } from '@pages/index';
 import type React from 'react';
-
-import { DescriptionAboutMe, ItemContact, ItemTechnicalSkill } from '../';
-import { codeString, contacts, skills, softSkill } from './types/types';
 
 const AboutMe = (): React.JSX.Element => {
   return (
