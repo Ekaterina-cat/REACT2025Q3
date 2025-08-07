@@ -36,10 +36,7 @@ const Header = (): React.JSX.Element => {
           <p className="text-white  dark:text-black">
             Project developed by RSSchool student
           </p>
-          <h1
-            className="font-sans uppercase text-white font-bold flex-grow text-center  dark:text-black
-          "
-          >
+          <h1 className="font-sans uppercase text-white font-bold flex-grow text-center dark:text-black">
             Search Engine Pokemon
           </h1>
           <img

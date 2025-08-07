@@ -1,4 +1,5 @@
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface InputProps {
   value: string;
@@ -12,7 +13,10 @@ const Input = ({ value, onChange }: InputProps): React.JSX.Element => {
       value={value}
       onChange={onChange}
       placeholder="Search pokemon..."
-      className="bg-gray-8 p-2 rounded text-white text-xs dark:bg-white dark:text-black dark:border-black dark:border-2"
+      className={twMerge(
+        'bg-gray-800 p-2 rounded text-white text-xs',
+        'dark:bg-white dark:text-black dark:border-black dark:border-2'
+      )}
     />
   );
 };

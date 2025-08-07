@@ -8,6 +8,7 @@ import { useLoading, usePagination } from '@utils/hooks';
 import type { Pokemon } from '@utils/types';
 import type React from 'react';
 import { useNavigate } from 'react-router';
+import { twMerge } from 'tailwind-merge';
 
 interface CardListProps {
   pokemons: Pokemon[];
@@ -39,7 +40,12 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
         {currentCards.map((pokemon) => (
           <div
             key={pokemon.url}
-            className="grid grid-cols-1 gap-4 rounded-lg bg-primary-8 shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300 dark:bg-white "
+            className={twMerge(
+              'grid grid-cols-1 gap-4',
+              'rounded-lg bg-primary-800',
+              'shadow-sm cursor-pointer hover:shadow-md transition-shadow duration-300',
+              'dark:bg-white '
+            )}
           >
             <div onClick={() => handlePokemonClick(pokemon.name.toLowerCase())}>
               <h3 className="text-center font-mono font-bold text-2xl text-white dark:text-black">
@@ -58,7 +64,12 @@ const CardList = ({ pokemons }: CardListProps): React.JSX.Element => {
             <li key={num}>
               <button
                 onClick={() => setCurrentPage(num)}
-                className={`px-3 py-1 rounded ${currentPage === num ? 'bg-gray-6 text-white dark:text-black dark:bg-blue-100' : 'bg-gray-8 dark:bg-white'}`}
+                className={twMerge(
+                  'px-3 py-1 rounded',
+                  currentPage === num
+                    ? 'bg-gray-400 text-white dark:text-black dark:bg-blue-100'
+                    : 'bg-gray-800 dark:bg-white'
+                )}
               >
                 {num}
               </button>

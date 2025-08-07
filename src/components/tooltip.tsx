@@ -42,7 +42,7 @@ const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
   };
   return (
     <>
-      <section className="fixed bottom-5 w-1/4 bg-primary-6 dark:bg-white dark:border-black dark:border-2">
+      <section className="fixed bottom-5 w-1/4 bg-primary-700 dark:bg-white dark:border-black dark:border-2">
         <p className="text-center text-white dark:text-black">
           Selected Items: {selectedCount}
         </p>

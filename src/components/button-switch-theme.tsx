@@ -7,7 +7,7 @@ const ButtonSwitchTheme = (): React.JSX.Element => {
   return (
     <button
       onClick={toggleTheme}
-      className="px-4 py-2 rounded bg-white text-black dark:bg-primary-8 dark:text-white"
+      className="px-4 py-2 rounded bg-white text-black dark:bg-primary-800 dark:text-white"
     >
       {isLight ? 'Switch To Dark Theme' : 'Switch To Light Theme'}
     </button>
