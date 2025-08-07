@@ -2,7 +2,8 @@ import '@testing-library/jest-dom';
 
 import { CardList } from '@components/';
 import { configureStore } from '@reduxjs/toolkit';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ROUTE_PATH } from '@utils/routers';
 import type { CheckboxState } from '@utils/types';
 import { Provider } from 'react-redux';
@@ -33,7 +34,7 @@ const mockStore = configureStore({
   },
 });
 
-describe('CatrdList Component', () => {
+describe('CardList Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -59,6 +60,7 @@ describe('CatrdList Component', () => {
   });
 
   it('should call navigate when clicking on a pokemon', async () => {
+    const user = userEvent.setup();
     render(
       <Provider store={mockStore}>
         <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
@@ -77,7 +79,7 @@ describe('CatrdList Component', () => {
       { timeout: 3000 }
     );
     const charmanderElement = screen.getByText('CHARMANDER');
-    fireEvent.click(charmanderElement);
+    await user.click(charmanderElement);
     expect(mockNavigate).toHaveBeenCalledWith('/page=1/charmander');
   });
 });

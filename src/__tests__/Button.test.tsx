@@ -1,14 +1,18 @@
 import { Button } from '@components/';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('Button', () => {
-  it('render and calls onClick', () => {
+  it('renders the label correctly', () => {
+    render(<Button onClick={vi.fn()} />);
+    expect(screen.getByAltText('search-magnifier'));
+  });
+  it('calls onClick handler when clicked', async () => {
+    const user = userEvent.setup();
     const mockOnClick = vi.fn();
     render(<Button onClick={mockOnClick} />);
-    const searchButton = screen.getByAltText('search-magnifier');
-    expect(searchButton).toBeDefined();
-    fireEvent.click(searchButton);
+    await user.click(screen.getByAltText('search-magnifier'));
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 });
