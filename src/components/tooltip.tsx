@@ -19,7 +19,6 @@ const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
   };
   const handleClickSave = async () => {
     const keys = Object.keys(dataForSaved);
-    const allData: DetailsRowCSV[] = [];
     const fields = [
       'name',
       'id',
@@ -28,15 +27,15 @@ const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
       'location_area_encounters',
     ];
 
-    for (let i = 0; i < keys.length; i++) {
-      const data = await fetchDataDetailsPokemon<DetailsRowCSV>(keys[i]);
-      if (data) {
-        allData.push(data);
-      }
-    }
+    const allData = await Promise.all(
+      keys.map((key) => fetchDataDetailsPokemon<DetailsRowCSV>(key))
+    );
+    const filteredData = allData.filter(
+      (data) => data !== undefined && data !== null
+    );
 
-    if (allData.length > 0) {
-      const csv = convertToCSV(allData, fields);
+    if (filteredData.length > 0) {
+      const csv = convertToCSV(filteredData, fields);
       downloadCSV(csv, `${selectedCount}`);
     }
   };

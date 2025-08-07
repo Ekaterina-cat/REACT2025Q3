@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 
 const useHandleLocalStorage = (
   key: string,
-  initlValue: string
+  initialValue: string
 ): [string, (value: string) => void] => {
   const [valueLocalStorage, setValueLocalStorage] = useState(() => {
-    return localStorage.getItem(key) ?? initlValue;
+    return localStorage.getItem(key) ?? initialValue;
   });
 
   useEffect(() => {
