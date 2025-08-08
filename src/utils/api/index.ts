@@ -1,2 +1,2 @@
-export { PokemonService } from './pokemonService';
-export { fetchDataDetailsPokemon } from './pokemonService';
+export { pokemonApiRequest } from './pokemon-api';
+export { fetchDataDetailsPokemon } from './pokemon-api';

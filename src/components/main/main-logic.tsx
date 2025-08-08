@@ -1,34 +1,35 @@
-import { PokemonService } from '@utils/api';
+import { useFetchPokemonsQuery } from '@utils/api/pokemon-api';
 import { useHandleLocalStorage } from '@utils/hooks';
 import type { Pokemon } from '@utils/types';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 
 const BodyPageLogic = () => {
   const [searchText, setSearchText] = useHandleLocalStorage(
     'savedSearchPokemon',
     ''
   );
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const {
+    data: apiResponse,
+    isLoading,
+    isError,
+    refetch,
+  } = useFetchPokemonsQuery(20);
 
-  const loadPokemons = useCallback(async () => {
-    const fetchedPokemons = await new PokemonService().fetchPokemons();
-    setPokemons(fetchedPokemons);
-  }, []);
+  const pokemons = apiResponse?.results || [];
 
-  useEffect(() => {
-    loadPokemons();
-  }, [loadPokemons]);
-
-  const handleSearch = async () => {
+  const handleSearch = useCallback(async () => {
     setSearchText(searchText.trim());
-    await loadPokemons();
-  };
+    await refetch();
+  }, [searchText, refetch, setSearchText]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(event.target.value);
-  };
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchText(event.target.value);
+    },
+    [setSearchText]
+  );
 
-  const filteredPokemons = pokemons.filter((pokemon) =>
+  const filteredPokemons = pokemons.filter((pokemon: Pokemon) =>
     pokemon.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
@@ -37,6 +38,8 @@ const BodyPageLogic = () => {
     handleInputChange,
     handleSearch,
     filteredPokemons,
+    isLoading,
+    isError,
   };
 };
 

@@ -1,8 +1,10 @@
 import '@testing-library/jest-dom';
 
 import { BodyPage } from '@components/';
+import { store } from '@store/store';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { ROUTE_PATH } from '@utils/routers';
+import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -12,9 +14,11 @@ describe('Main Component', () => {
   const setupComponent = () => {
     window.fetch = vi.fn().mockResolvedValue(mockPokemons);
     render(
-      <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
-        <BodyPage />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
+          <BodyPage />
+        </MemoryRouter>
+      </Provider>
     );
     const input = screen.getByRole('textbox');
     const button = screen.getByRole('button');
@@ -23,9 +27,11 @@ describe('Main Component', () => {
 
   it('renders main component', () => {
     render(
-      <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
-        <BodyPage />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter initialEntries={[ROUTE_PATH.MAIN]}>
+          <BodyPage />
+        </MemoryRouter>
+      </Provider>
     );
   });
 
