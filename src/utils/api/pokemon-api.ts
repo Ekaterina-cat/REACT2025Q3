@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_BASE_URL } from '@utils/constants';
+import type { Pokemon } from '@utils/types';
+import type { PokemonDetails } from 'src/components/card-details/types/card-details.type';
 
 export const pokemonApiRequest = createApi({
   reducerPath: 'pokemonApi',
@@ -12,18 +14,18 @@ export const pokemonApiRequest = createApi({
 });
 export const { useFetchPokemonsQuery } = pokemonApiRequest;
 
-export const fetchDataDetailsPokemon = async <T>(
-  url: string
-): Promise<T | null> => {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data: T = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching details: ', error);
-    return null;
-  }
-};
+export const fetchDataDetailsPokemon = createApi({
+  reducerPath: 'pokemonApiDetails',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
+  endpoints: (builder) => ({
+    getPokemonList: builder.query<Pokemon[], Record<string, never>>({
+      query: () => 'pokemon',
+    }),
+    getPokemonDetails: builder.query<PokemonDetails, string>({
+      query: (url) => url,
+    }),
+  }),
+});
+
+export const { useGetPokemonListQuery, useGetPokemonDetailsQuery } =
+  fetchDataDetailsPokemon;

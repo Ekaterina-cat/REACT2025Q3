@@ -1,21 +1,19 @@
-import { fetchDataDetailsPokemon } from '@utils/api';
-import { useEffect, useState } from 'react';
+import { useGetPokemonDetailsQuery } from '@utils/api/pokemon-api';
 
-import type { CardDetailsProps, PokemonDetails } from '..';
+import type { CardDetailsProps } from '..';
 
 const CardDetailsLogic = ({ url }: CardDetailsProps) => {
-  const [details, setDetails] = useState<PokemonDetails | null>(null);
+  const { data: details, error, isLoading } = useGetPokemonDetailsQuery(url);
 
-  useEffect(() => {
-    const fetchPokemonDetails = async () => {
-      const data = await fetchDataDetailsPokemon<PokemonDetails>(url);
-      setDetails(data);
-    };
+  if (isLoading) {
+    return { details: null, isLoading: true, error: null };
+  }
 
-    fetchPokemonDetails();
-  }, [url]);
+  if (error) {
+    return { details: null, isLoading: false, error };
+  }
 
-  return { details };
+  return { details, isLoading: false, error: null };
 };
 
 export default CardDetailsLogic;
