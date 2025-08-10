@@ -1,4 +1,5 @@
 import type React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 const Footer = (): React.JSX.Element => {
   return (
@@ -14,7 +15,12 @@ const Footer = (): React.JSX.Element => {
         <h3 className="font-bold text-white dark:text-black">2025</h3>
         <a
           href="https://github.com/Ekaterina-cat"
-          className="flex flex-row justify-center items-center font-bold text-white transform hover:scale-105 transition-transform duration-300 ease-in-out dark:text-black"
+          className={twMerge(
+            'flex flex-row justify-center items-center',
+            'font-bold text-white',
+            'transform hover:scale-105 transition-transform duration-300 ease-in-out',
+            'dark:text-black'
+          )}
         >
           <img
             src="logo_github.png"

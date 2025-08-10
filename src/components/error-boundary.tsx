@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -33,7 +34,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             <h1 className="font-bold uppercase">Something went wrong.</h1>
             <button
               onClick={this.handleTryAgain}
-              className="px-6 py-3 bg-gradient-to-r from-green-500 to-green-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:scale-105"
+              className={twMerge(
+                'px-6 py-3',
+                'bg-gradient-to-r from-green-500 to-green-700 text-white',
+                'font-bold rounded-full shadow-lg',
+                'hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:scale-105'
+              )}
             >
               Try Again
             </button>

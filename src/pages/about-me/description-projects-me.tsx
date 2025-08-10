@@ -23,7 +23,7 @@ const DescriptionProjectMe = (): React.JSX.Element => {
             </td>
             <td>
               <h4>
-                <strong>Christmas Shop</strong> - daptive Website for a
+                <strong>Christmas Shop</strong> - adaptive Website for a
                 Christmas Toy Shop
               </h4>
               <ul>
@@ -68,7 +68,7 @@ const DescriptionProjectMe = (): React.JSX.Element => {
                 The task is a variant of the classical
                 <strong>`Simon Says`</strong>
                 game, where players must remember and reproduce sequences of
-                keyboard symbols. In this task, `symbols`` refer only to letters
+                keyboard symbols. In this task, `symbols` refer only to letters
                 and numbers.
               </h4>
               <p>

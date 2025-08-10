@@ -10,26 +10,30 @@
   --color-primary: hsl(196, 76%, 11%);
 
   /* Градиент от светлого к тёмному */
-  --color-primary-0: hsl(196, 76%, 90%);
-  --color-primary-1: hsl(196, 76%, 80%);
-  --color-primary-2: hsl(196, 76%, 70%);
-  --color-primary-3: hsl(196, 76%, 60%);
-  --color-primary-4: hsl(196, 76%, 50%);
-  --color-primary-5: hsl(196, 76%, 41%);
-  --color-primary-6: hsl(196, 76%, 31%);
-  --color-primary-7: hsl(196, 76%, 21%);
-  --color-primary-8: hsl(196, 76%, 11%);
+  --color-primary-50: hsl(196, 76%, 90%);
+  --color-primary-100: hsl(196, 76%, 80%);
+  --color-primary-200: hsl(196, 76%, 70%);
+  --color-primary-300: hsl(196, 76%, 60%);
+  --color-primary-400: hsl(196, 76%, 50%);
+  --color-primary-500: hsl(196, 76%, 41%);
+  --color-primary-600: hsl(196, 76%, 31%);
+  --color-primary-700: hsl(196, 76%, 21%);
+  --color-primary-800: hsl(196, 76%, 11%);
+  --color-primary-900: hsl(196, 76%, 6%);
+  --color-primary-950: hsl(196, 76%, 3%);
 
   /* Градиент от светлого к тёмному */
-  --color-gray-0: hsl(0, 0%, 100%);
-  --color-gray-1: hsl(0, 0%, 89%);
-  --color-gray-2: hsl(0, 0%, 78%);
-  --color-gray-3: hsl(0, 0%, 67%);
-  --color-gray-4: hsl(0, 0%, 56%);
-  --color-gray-5: hsl(0, 0%, 44%);
-  --color-gray-6: hsl(0, 0%, 33%);
-  --color-gray-7: hsl(0, 0%, 22%);
-  --color-gray-8: hsl(0, 0%, 11%);
+  --color-gray-50: hsl(0, 0%, 100%);
+  --color-gray-100: hsl(0, 0%, 89%);
+  --color-gray-200: hsl(0, 0%, 78%);
+  --color-gray-300: hsl(0, 0%, 67%);
+  --color-gray-400: hsl(0, 0%, 56%);
+  --color-gray-500: hsl(0, 0%, 44%);
+  --color-gray-600: hsl(0, 0%, 33%);
+  --color-gray-700: hsl(0, 0%, 22%);
+  --color-gray-800: hsl(0, 0%, 11%);
+  --color-gray-900: hsl(0, 0%, 6%);
+  --color-gray-950: hsl(0, 0%, 3%);
 }
 
 :root {

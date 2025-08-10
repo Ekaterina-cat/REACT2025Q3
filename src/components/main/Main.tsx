@@ -1,11 +1,9 @@
+import { BodyPageLogic, Button, CardList, Input } from '@components/';
 import type React from 'react';
 
-import { Button, CardList, Input } from '..';
-import MainLogic from './main-logic';
-
-const Main = (): React.JSX.Element => {
+const BodyPage = (): React.JSX.Element => {
   const { searchText, handleInputChange, handleSearch, filteredPokemons } =
-    MainLogic();
+    BodyPageLogic();
 
   return (
     <>
@@ -22,4 +20,4 @@ const Main = (): React.JSX.Element => {
   );
 };
 
-export default Main;
+export default BodyPage;

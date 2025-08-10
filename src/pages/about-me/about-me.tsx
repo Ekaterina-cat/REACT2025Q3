@@ -1,19 +1,29 @@
+import {
+  DescriptionAboutMe,
+  ItemContact,
+  ItemTechnicalSkill,
+} from '@pages/index';
+import { codeString, contacts, skills, softSkill } from '@pages/index';
 import type React from 'react';
-
-import { DescriptionAboutMe, ItemContact, ItemTechnicalSkill } from '../';
-import { codeString, contacts, skills, softSkill } from './types/types';
+import { twMerge } from 'tailwind-merge';
 
 const AboutMe = (): React.JSX.Element => {
   return (
     <>
-      <section className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-4 text-white m-auto w-4/5 dark:text-black">
+      <section
+        className={twMerge(
+          'grid grid-cols-1 md:grid-cols-2 justify-items-center gap-4',
+          'text-white m-auto w-4/5',
+          'dark:text-black'
+        )}
+      >
         <div className="grid grid-cols-1">
           <img
             src="foto-for-cv.JPG"
             alt="foto-for-cv"
             className="h-36 rounded-lg self-center"
           />
-          <div className="grid grid-cols-1 gap-10 p-6 bg-primary-8 rounded-lg dark:bg-primary-0">
+          <div className="grid grid-cols-1 gap-10 p-6 bg-primary-800 rounded-lg dark:bg-primary-100">
             <div>
               <h2 className="uppercase font-bold text-xl font-mono mb-2">
                 contacts
@@ -58,7 +68,7 @@ const AboutMe = (): React.JSX.Element => {
               <h2 className="uppercase font-bold text-xl font-mono mb-2">
                 code example
               </h2>
-              <pre className="bg-primary-7 dark:bg-blue-50">
+              <pre className="bg-primary-700 dark:bg-blue-50">
                 <code>{codeString}</code>
               </pre>
             </div>
@@ -79,8 +89,13 @@ const AboutMe = (): React.JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-4 p-6 bg-primary-8 rounded-lg dark:bg-primary-0 dark:text-black">
-          <div className="bg-primary-7 p-6 rounded shadow h-40 dark:bg-blue-50">
+        <div
+          className={twMerge(
+            'grid grid-cols-1 gap-4 p-6 bg-primary-800 rounded-lg',
+            'dark:bg-primary-50 dark:text-black'
+          )}
+        >
+          <div className="bg-primary-700 p-6 rounded shadow h-40 dark:bg-blue-50">
             <h1 className="uppercase font-bold text-xl font-mono mb-2 text-white dark:text-black">
               Katsiaryna Dounar
             </h1>
