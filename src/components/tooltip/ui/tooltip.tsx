@@ -1,14 +1,16 @@
 import { resetCheckboxes } from '@store/checkbox-slice';
-import { fetchDataDetailsPokemon } from '@utils/api';
 import { STYLE_BUTTON } from '@utils/constants';
 import { convertToCSV, downloadCSV } from '@utils/csv';
 import type { DetailsRowCSV, RootState } from '@utils/types';
 import type React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { TooltipLogic } from '../lib/toolpip-logic';
+
 interface TooltipProps {
   selectedCount: number;
 }
+
 const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
   const dataForSaved = useSelector(
     (state: RootState) => state.checkbox.checkboxes
@@ -28,8 +30,9 @@ const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
     ];
 
     const allData = await Promise.all(
-      keys.map((key) => fetchDataDetailsPokemon<DetailsRowCSV>(key))
+      keys.map((key) => TooltipLogic<DetailsRowCSV>(key))
     );
+
     const filteredData = allData.filter(
       (data) => data !== undefined && data !== null
     );

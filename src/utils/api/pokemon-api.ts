@@ -14,7 +14,7 @@ export const pokemonApiRequest = createApi({
 });
 export const { useFetchPokemonsQuery } = pokemonApiRequest;
 
-export const fetchDataDetailsPokemon = createApi({
+export const pokemonApi = createApi({
   reducerPath: 'pokemonApiDetails',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
   endpoints: (builder) => ({
@@ -27,5 +27,4 @@ export const fetchDataDetailsPokemon = createApi({
   }),
 });
 
-export const { useGetPokemonListQuery, useGetPokemonDetailsQuery } =
-  fetchDataDetailsPokemon;
+export const { useGetPokemonListQuery, useGetPokemonDetailsQuery } = pokemonApi;
