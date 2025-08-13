@@ -31,5 +31,5 @@
       "@utils/*": ["./src/utils/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "next.config.mjs"]
 }
