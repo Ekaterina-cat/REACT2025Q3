@@ -23,7 +23,7 @@ const Header = (): React.JSX.Element => {
                 priority
               />
             </Link>
-            <Link href="/aboutme">
+            <Link href="/about-me">
               <Image
                 src="/icon-about-me.png"
                 alt="icon-about-me"
