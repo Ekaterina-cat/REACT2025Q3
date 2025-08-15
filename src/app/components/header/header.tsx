@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type React from 'react';
 
@@ -13,39 +14,54 @@ const Header = (): React.JSX.Element => {
         <div className="flex flex-row justify-between">
           <nav className="flex flex-row gap-4">
             <Link href="/page=1">
-              <img
-                src="icon-home.png"
+              <Image
+                src="/icon-home.png"
                 alt="icon-home"
                 className="w-15 invert"
+                width={15}
+                height={38}
+                priority
               />
             </Link>
             <Link href="/aboutme">
-              <img
-                src="icon-about-me.png"
+              <Image
+                src="/icon-about-me.png"
                 alt="icon-about-me"
+                width={15}
+                height={38}
                 className="w-15 invert"
               />
             </Link>
           </nav>
         </div>
         <div className="grid place-items-center gap-0.5">
-          <img src="header-pokemon.png" alt="header-pokemon" />
-          <p className="text-white  dark:text-black">
+          <Image
+            src="/header-pokemon.png"
+            alt="header-pokemon"
+            width={200}
+            height={60}
+          />
+          <p className="text-white dark:text-black">
             Project developed by RSSchool student
           </p>
           <h1 className="font-sans uppercase text-white font-bold flex-grow text-center dark:text-black">
             Search Engine Pokemon
           </h1>
-          <img
-            src="header-pikachu.png"
+          <Image
+            src="/header-pikachu.png"
             alt="header-pikachu"
-            className="w-70 z-10"
+            width={300}
+            height={300}
+            className="z-10"
           />
         </div>
-        <img
+        <Image
           src="header-bottom.png"
           alt="header-bottom"
           className="w-full h-40 object-cover absolute bottom-0 left-0 z-0"
+          width={500}
+          height={500}
+          priority
         />
       </header>
     </>
