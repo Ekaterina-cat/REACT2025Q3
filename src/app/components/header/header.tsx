@@ -1,7 +1,5 @@
+import Link from 'next/link';
 import type React from 'react';
-import { NavLink } from 'react-router';
-
-import ButtonSwitchTheme from './button-switch-theme';
 
 const Header = (): React.JSX.Element => {
   return (
@@ -14,22 +12,21 @@ const Header = (): React.JSX.Element => {
       >
         <div className="flex flex-row justify-between">
           <nav className="flex flex-row gap-4">
-            <NavLink to="/page=1" end>
+            <Link href="/page=1">
               <img
                 src="icon-home.png"
                 alt="icon-home"
                 className="w-15 invert"
               />
-            </NavLink>
-            <NavLink to="/aboutme" end>
+            </Link>
+            <Link href="/aboutme">
               <img
                 src="icon-about-me.png"
                 alt="icon-about-me"
                 className="w-15 invert"
               />
-            </NavLink>
+            </Link>
           </nav>
-          <ButtonSwitchTheme />
         </div>
         <div className="grid place-items-center gap-0.5">
           <img src="header-pokemon.png" alt="header-pokemon" />
