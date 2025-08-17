@@ -1,5 +1,7 @@
-import { useTheme } from '@utils/context';
+'use client';
 import type React from 'react';
+
+import { useTheme } from '../../utils/context';
 
 const ButtonSwitchTheme = (): React.JSX.Element => {
   const { isLight, toggleTheme } = useTheme();

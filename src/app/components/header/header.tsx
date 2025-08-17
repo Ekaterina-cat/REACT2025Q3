@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type React from 'react';
 
+import ButtonSwitchTheme from '../button-switch-theme/button-switch-theme';
+
 const Header = (): React.JSX.Element => {
   return (
     <>
@@ -32,6 +34,7 @@ const Header = (): React.JSX.Element => {
                 className="w-15 invert"
               />
             </Link>
+            <ButtonSwitchTheme />
           </nav>
         </div>
         <div className="grid place-items-center gap-0.5">
