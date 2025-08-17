@@ -1,5 +1,11 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { CheckboxState } from '@utils/types';
+
+export interface CheckboxState {
+  checkboxes: {
+    [key: string]: boolean;
+  };
+  selectedCount: number;
+}
 
 const initialState: CheckboxState = {
   checkboxes: {},

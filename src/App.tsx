@@ -7,10 +7,11 @@ import {
 } from '@components/';
 import { AboutMe, NotFound, Search } from '@pages/index';
 import { ROUTE_PATH } from '@utils/routers';
-import type { RootState } from '@utils/types';
 import type React from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
+
+import type { RootState } from './app/utils/types';
 
 const App = (): React.JSX.Element => {
   const selectedCount = useSelector(

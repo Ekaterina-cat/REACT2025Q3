@@ -5,11 +5,16 @@ const useHandleLocalStorage = (
   initialValue: string
 ): [string, (value: string) => void] => {
   const [valueLocalStorage, setValueLocalStorage] = useState(() => {
-    return localStorage.getItem(key) ?? initialValue;
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(key) ?? initialValue;
+    }
+    return initialValue;
   });
 
   useEffect(() => {
-    localStorage.setItem(key, valueLocalStorage);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(key, valueLocalStorage);
+    }
   }, [key, valueLocalStorage]);
 
   return [valueLocalStorage, setValueLocalStorage];

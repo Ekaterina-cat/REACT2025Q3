@@ -1,25 +1,17 @@
-import { API_BASE_URL } from '@utils/constants';
+'use client';
+
 import type React from 'react';
 import { twMerge } from 'tailwind-merge';
 
+import { Pokemon } from '../../utils/types';
 import Checkbox from '../checkbox/checkbox';
 import PokemonListItem from '../pokemon-list-item/pokemon-list-item';
 
-export interface Pokemon {
-  name: string;
-  url: string;
+interface PokemonListProps {
+  pokemonList: Pokemon[];
 }
 
-const PokemonList = async () => {
-  const response = await fetch(`${API_BASE_URL}pokemon/?limit=20`, {
-    cache: 'force-cache',
-  });
-  if (!response.ok) {
-    throw new Error(`Error while receiving data: ${response.status}`);
-  }
-  const pokemons = await response.json();
-  const pokemonList = pokemons.results;
-
+export default function PokemonList({ pokemonList }: PokemonListProps) {
   return (
     <section className="grid grid-cols-1 gap-4 mb-10 overflow-auto">
       <div className="flex flex-row justify-center gap-4 flex-wrap">
@@ -38,13 +30,11 @@ const PokemonList = async () => {
                 {pokemon.name.toUpperCase()}
               </h3>
               <PokemonListItem url={pokemon.url} />
+              <Checkbox id={pokemon.url} />
             </div>
-            <Checkbox id={pokemon.url} />
           </div>
         ))}
       </div>
     </section>
   );
-};
-
-export default PokemonList;
+}

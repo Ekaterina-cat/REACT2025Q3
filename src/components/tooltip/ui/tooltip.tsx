@@ -1,10 +1,10 @@
 import { STYLE_BUTTON } from '@utils/constants';
 import { convertToCSV, downloadCSV } from '@utils/csv';
-import type { DetailsRowCSV, RootState } from '@utils/types';
 import type React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { resetCheckboxes } from '../../../app/store/checkbox-slice';
+import type { DetailsRowCSV, RootState } from '../../../app/utils/types';
 import { TooltipLogic } from '../lib/toolpip-logic';
 
 interface TooltipProps {
