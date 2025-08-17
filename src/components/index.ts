@@ -8,4 +8,4 @@ export { default as BodyPage } from './main/Main';
 export { default as BodyPageLogic } from './main/main-logic';
 export { default as PokemonDetail } from './details-pokemon/ui/render-details-pokemon';
 export { default as Spinner } from './Spinner';
-export { default as Tooltip } from './tooltip/ui/tooltip';
+export { default as Tooltip } from '../app/components/pop-up-box/pop-up-box';

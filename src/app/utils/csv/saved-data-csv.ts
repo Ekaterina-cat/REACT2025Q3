@@ -1,4 +1,4 @@
-import type { DetailsRowCSV } from '../../app/utils/types';
+import { DetailsRowCSV } from '../types';
 
 export const convertToCSV = (data: DetailsRowCSV[], fields: string[]) => {
   const headers = fields.join(',');

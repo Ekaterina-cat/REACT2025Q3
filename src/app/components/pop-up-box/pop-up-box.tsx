@@ -1,17 +1,17 @@
-import { STYLE_BUTTON } from '@utils/constants';
-import { convertToCSV, downloadCSV } from '@utils/csv';
+import Image from 'next/image';
 import type React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { resetCheckboxes } from '../../../app/store/checkbox-slice';
-import type { DetailsRowCSV, RootState } from '../../../app/utils/types';
-import { TooltipLogic } from '../lib/toolpip-logic';
+import { resetCheckboxes } from '../../store/checkbox-slice';
+import { STYLE_BUTTON } from '../../utils/constants/constants';
+import { convertToCSV, downloadCSV } from '../../utils/csv';
+import { RootState } from '../../utils/types';
 
 interface TooltipProps {
   selectedCount: number;
 }
 
-const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
+const PopUpBox = ({ selectedCount }: TooltipProps): React.JSX.Element => {
   const dataForSaved = useSelector(
     (state: RootState) => state.checkbox.checkboxes
   );
@@ -30,7 +30,10 @@ const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
     ];
 
     const allData = await Promise.all(
-      keys.map((key) => TooltipLogic<DetailsRowCSV>(key))
+      keys.map(async (key) => {
+        const response = await fetch(key);
+        return response.ok ? await response.json() : null;
+      })
     );
 
     const filteredData = allData.filter(
@@ -53,10 +56,12 @@ const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
             Unselect all
           </button>
           <button onClick={handleClickSave} className={STYLE_BUTTON}>
-            <img
+            <Image
               src="icon-save.png"
               alt="icon-save"
               className="invert dark:invert-0"
+              width={20}
+              height={20}
             />
           </button>
         </div>
@@ -65,4 +70,4 @@ const Tooltip = ({ selectedCount }: TooltipProps): React.JSX.Element => {
   );
 };
 
-export default Tooltip;
+export default PopUpBox;
