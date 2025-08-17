@@ -13,7 +13,7 @@ const Header = (): React.JSX.Element => {
       >
         <div className="flex flex-row justify-between">
           <nav className="flex flex-row gap-4">
-            <Link href="/page=1">
+            <Link href="/pokemon">
               <Image
                 src="/icon-home.png"
                 alt="icon-home"

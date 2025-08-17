@@ -10,6 +10,12 @@ export const pokemonApiRequest = createApi({
     fetchPokemons: builder.query({
       query: (limit = 20) => `pokemon/?limit=${limit}`,
     }),
+    getPokemonList: builder.query<Pokemon[], Record<string, never>>({
+      query: () => 'pokemon',
+    }),
+    getPokemonDetails: builder.query<PokemonDetails, string>({
+      query: (url) => url,
+    }),
   }),
 });
 export const { useFetchPokemonsQuery } = pokemonApiRequest;

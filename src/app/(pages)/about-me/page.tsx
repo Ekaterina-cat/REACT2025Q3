@@ -1,13 +1,9 @@
-import {
-  DescriptionAboutMe,
-  ItemContact,
-  ItemTechnicalSkill,
-} from '@about-me/index';
-import { codeString, contacts, skills, softSkill } from '@about-me/index';
 import type React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { Footer, Header } from '../components/';
+import { Footer, Header } from '../../components/index';
+import { DescriptionAboutMe, ItemContact, ItemTechnicalSkill } from './index';
+import { codeString, contacts, skills, softSkill } from './index';
 
 const AboutMe = (): React.JSX.Element => {
   return (

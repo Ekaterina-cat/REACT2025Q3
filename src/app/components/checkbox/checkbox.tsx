@@ -1,15 +1,17 @@
-import { toggleCheckbox } from '@store/checkbox-slice';
+'use client';
 import type { RootState } from '@utils/types';
 import type React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { toggleCheckbox } from '../../store/checkbox-slice';
 
 interface CheckboxProps {
   id: string;
 }
 
-const Checkbox = ({ id }: CheckboxProps): React.JSX.Element => {
+const Checkbox = ({ id }: CheckboxProps) => {
   const isChecked = useSelector(
-    (state: RootState) => state.checkbox.checkboxes[id]
+    (state: RootState) => state.checkbox.checkboxes[id] ?? false
   );
   const dispatch = useDispatch();
 

@@ -1,15 +1,33 @@
+import Image from 'next/image';
 import type React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import type { CardDetailsProps } from '..';
-import { CardDetailsLogic } from '..';
+interface PokemonDetails {
+  height: number;
+  weight: number;
+  types: Array<{ type: { name: string } }>;
+  abilities: Array<{ ability: { name: string } }>;
+  stats: Array<{ stat: { name: string }; base_stat: number }>;
+  moves: Array<{ move: { name: string } }>;
+  sprites: { front_default: string };
+}
 
-const CardDetails = ({ url }: CardDetailsProps): React.JSX.Element => {
-  const { details } = CardDetailsLogic({ url });
+interface CardDetailsProps {
+  url: string;
+}
 
-  if (!details) {
-    return <div>No details available</div>;
+const PokemonListItem = async ({ url }: CardDetailsProps) => {
+  const response = await fetch(url, { cache: 'force-cache' });
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(
+      `Error retrieving pokemon data: ${response.status}\n` +
+        `URL: ${url}\n` +
+        `Message: ${errorData?.message || 'Unknown error'}`
+    );
   }
+  const details: PokemonDetails = await response.json();
+
   return (
     <>
       <ul
@@ -60,14 +78,16 @@ const CardDetails = ({ url }: CardDetailsProps): React.JSX.Element => {
         </li>
       </ul>
       {details.sprites.front_default && (
-        <img
+        <Image
           src={details.sprites.front_default}
           alt="Pokemon"
           className="justify-self-center w-40 h-40"
+          width={100}
+          height={100}
         />
       )}
     </>
   );
 };
 
-export default CardDetails;
+export default PokemonListItem;

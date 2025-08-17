@@ -1,7 +1,7 @@
 export { default as Button } from './Button';
 export { default as CardDetails } from './card-details/ui/render-card-item';
 export { default as CardList } from './card-list/ui/card-list';
-export { default as Checkbox } from './checkbox';
+export { default as Checkbox } from '../app/components/checkbox/checkbox';
 export { default as ErrorDataRetrieval } from './error-data-retrieval';
 export { default as Input } from './Input';
 export { default as BodyPage } from './main/Main';

@@ -23,7 +23,6 @@
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/index.ts"],
-      "@about-me/*": ["./src/app/about-me/*"],
       "@store/*": ["./src/store/*"],
       "@utils/*": ["./src/utils/*"]
     }
