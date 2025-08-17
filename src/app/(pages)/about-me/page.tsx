@@ -4,6 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { Footer, Header } from '../../components/index';
 import { DescriptionAboutMe, ItemContact, ItemTechnicalSkill } from './index';
 import { codeString, contacts, skills, softSkill } from './index';
+import Image from 'next/image';
 
 const AboutMe = (): React.JSX.Element => {
   return (
@@ -18,10 +19,12 @@ const AboutMe = (): React.JSX.Element => {
           )}
         >
           <div className="grid grid-cols-1">
-            <img
+            <Image
               src="foto-for-cv.JPG"
               alt="foto-for-cv"
               className="h-36 rounded-lg self-center"
+              width={100}
+              height={5}
             />
             <div className="grid grid-cols-1 gap-10 p-6 bg-primary-800 rounded-lg dark:bg-primary-100">
               <div>

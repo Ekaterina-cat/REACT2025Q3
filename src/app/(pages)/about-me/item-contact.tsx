@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type React from 'react';
 
 interface ItemContactProps {
@@ -16,10 +17,12 @@ const ItemContact = ({
   return (
     <li className="flex flex-row font-serif gap-2">
       {imgSrc && (
-        <img
+        <Image
           src={imgSrc}
           alt={imgAlt || 'Contact icon'}
           className="w-7 invert dark:invert-0"
+          width={5}
+          height={5}
         />
       )}
       <a href={href}>{text}</a>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type React from 'react';
 
 const DescriptionProjectMe = (): React.JSX.Element => {
@@ -15,10 +16,12 @@ const DescriptionProjectMe = (): React.JSX.Element => {
               </a>
             </td>
             <td className="w-40">
-              <img
+              <Image
                 src="icon-chris-shop.png"
                 alt="icon-chris-shop"
                 className="w-30"
+                width={5}
+                height={5}
               />
             </td>
             <td>
@@ -57,10 +60,12 @@ const DescriptionProjectMe = (): React.JSX.Element => {
               </a>
             </td>
             <td className="w-40">
-              <img
+              <Image
                 src="icon-simon-says.png"
                 alt="icon-simon-says"
                 className="h-25"
+                width={150}
+                height={5}
               />
             </td>
             <td>
@@ -91,7 +96,7 @@ const DescriptionProjectMe = (): React.JSX.Element => {
               </a>
             </td>
             <td className="w-40">
-              <img src="icon-hangman.png" alt="icon-hangman" className="h-20" />
+              <Image src="icon-hangman.png" alt="icon-hangman" className="h-20" width={150} height={5} />
             </td>
             <td>
               <h4>
