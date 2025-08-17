@@ -15,7 +15,7 @@ const Header = (): React.JSX.Element => {
       >
         <div className="flex flex-row justify-between">
           <nav className="flex flex-row gap-4">
-            <Link href="/pokemon">
+            <Link href="/">
               <Image
                 src="/icon-home.png"
                 alt="icon-home"

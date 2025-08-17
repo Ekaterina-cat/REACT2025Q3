@@ -1,7 +1,7 @@
 import type React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { Footer, Header } from '../../components/index';
+import { Footer, Header } from '../components/index';
 import { DescriptionAboutMe, ItemContact, ItemTechnicalSkill } from './index';
 import { codeString, contacts, skills, softSkill } from './index';
 import Image from 'next/image';

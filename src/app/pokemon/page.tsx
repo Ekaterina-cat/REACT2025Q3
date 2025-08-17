@@ -1,7 +1,7 @@
-import Footer from '../../components/footer/footer';
-import Header from '../../components/header/header';
-import PokemonPageClient from '../../components/pokemon-page-client/pokemon-page-client';
-import { API_BASE_URL } from '../../utils/constants/constants';
+import Footer from "../components/footer/footer";
+import Header from "../components/header/header";
+import PokemonPageClient from "../components/pokemon-page-client/pokemon-page-client";
+import { API_BASE_URL } from "../utils/constants/constants";
 
 export default async function PokemonPage() {
   try {

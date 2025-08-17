@@ -11,7 +11,7 @@ const Footer = (): React.JSX.Element => {
             src="rs_school_js.svg"
             alt="rs_school_js"
             className="h-10 invert dark:invert-0"
-            width={50}
+            width={90}
             height={50}
           />
         </a>
@@ -29,7 +29,7 @@ const Footer = (): React.JSX.Element => {
             src="logo_github.png"
             alt="logo_github"
             className="h-10 invert dark:invert-0"
-            width={10}
+            width={40}
             height={10}
           />
           <h3 className="uppercase">Katsiaryna Dounar</h3>

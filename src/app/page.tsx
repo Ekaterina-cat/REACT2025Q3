@@ -1,4 +1,4 @@
-import PokemonPage from './(pages)/pokemon/page';
+import PokemonPage from './pokemon/page';
 import { Providers } from './providers';
 
 export default async function Home() {
