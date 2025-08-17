@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type React from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -6,10 +7,12 @@ const Footer = (): React.JSX.Element => {
     <>
       <footer className="flex flex-row justify-between items-center h-15 w-11/12 m-auto">
         <a href="https://rs.school/courses/reactjs">
-          <img
+          <Image
             src="rs_school_js.svg"
             alt="rs_school_js"
             className="h-10 invert dark:invert-0"
+            width={50}
+            height={50}
           />
         </a>
         <h3 className="font-bold text-white dark:text-black">2025</h3>
@@ -22,10 +25,12 @@ const Footer = (): React.JSX.Element => {
             'dark:text-black'
           )}
         >
-          <img
+          <Image
             src="logo_github.png"
             alt="logo_github"
             className="h-10 invert dark:invert-0"
+            width={10}
+            height={10}
           />
           <h3 className="uppercase">Katsiaryna Dounar</h3>
         </a>
