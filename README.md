@@ -17,8 +17,8 @@ Project "React Forms" is a training task within the course "React" from RSSchool
 | Tooling   | [Vite](https://vite.dev/), [Vitest](https://vitest.dev/), [Prettier](https://prettier.io/), [ESLint](https://eslint.org/) |
 | Testing   | [Vitest](https://vitest.dev/)                                                                                             |
 | Git Hooks | [Husky](https://typicode.github.io/husky/)                                                                                |
-| State     | [Redux Toolkit](https://redux-toolkit.js.org/)                                                                                                         |
-| Forms     | [React Hook Form](https://www.react-hook-form.com/api/), [Zod](https://zod.dev/)
+| State     | [Redux Toolkit](https://redux-toolkit.js.org/)                                                                            |
+| Forms     | [React Hook Form](https://www.react-hook-form.com/api/), [Zod](https://zod.dev/)                                          |
 
 ## How to Run the Project Locally
 
@@ -39,3 +39,4 @@ Project "React Forms" is a training task within the course "React" from RSSchool
 
 ```bash
    npm run dev
+```
