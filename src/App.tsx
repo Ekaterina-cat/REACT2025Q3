@@ -1,7 +1,7 @@
-import './App.css';
+import { HomePage } from '@pages/home-page';
 
 function App() {
-  return <h1>Hello, FormVenture!</h1>;
+  return <HomePage />;
 }
 
 export default App;

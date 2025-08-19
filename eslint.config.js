@@ -44,7 +44,6 @@ export default tseslint.config(
           order: 'asc',
           groups: [
             'type',
-            'react',
             'builtin',
             'external',
             'internal-type',
@@ -59,7 +58,7 @@ export default tseslint.config(
             'style',
             'unknown',
           ],
-          'newlines-between': 'always',
+          newlinesBetween: 'always',
         },
       ],
     },
@@ -68,5 +67,5 @@ export default tseslint.config(
         version: 'detect',
       },
     },
-  },
+  }
 );
