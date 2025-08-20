@@ -13,7 +13,7 @@ export const CheckboxGender = ({
     <div>
       <label>
         <div>
-          <label className="font-borel text-lg font-black text-gray-900">
+          <label>
             <input
               type="radio"
               name="gender"

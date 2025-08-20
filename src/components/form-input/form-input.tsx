@@ -19,18 +19,8 @@ export const FormInput = ({
 }: FormInputProps): JSX.Element => {
   return (
     <div className={className}>
-      <label
-        htmlFor={id}
-        className="font-borel text-lg font-black text-gray-900"
-      >
-        {label}
-      </label>
-      <input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        className="font-borel w-full rounded border p-2 text-xs"
-      />
+      <label htmlFor={id}>{label}</label>
+      <input id={id} type={type} placeholder={placeholder} />
     </div>
   );
 };

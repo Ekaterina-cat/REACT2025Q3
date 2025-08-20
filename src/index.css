@@ -6,6 +6,15 @@
   --font-courgette: 'Courgette';
   --font-borel: 'Borel';
 }
+
+@layer components {
+  label {
+    @apply font-borel text-lg font-black text-gray-900;
+  }
+  input {
+    @apply font-courgette w-full rounded border p-2 text-xs;
+  }
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

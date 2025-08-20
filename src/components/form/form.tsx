@@ -2,6 +2,7 @@ import type { JSX } from 'react';
 
 import { CheckboxGender } from '@components/checkbox-gender';
 import { FormInput } from '@components/form-input';
+import { SelectCountry } from '@components/select-country/select-country';
 
 import { formFields } from './form.type';
 export const Form = (): JSX.Element => {
@@ -18,17 +19,13 @@ export const Form = (): JSX.Element => {
           />
         ))}
         <div>
-          <label
-            htmlFor=""
-            className="font-borel text-lg font-black text-gray-900"
-          >
-            Gender
-          </label>
+          <label htmlFor="">Gender</label>
           <div className="flex gap-10">
             <CheckboxGender value={'male'} gender={'man'} />
             <CheckboxGender value={'female'} gender={'woman'} />
           </div>
         </div>
+        <SelectCountry />
       </form>
       <button></button>
     </div>

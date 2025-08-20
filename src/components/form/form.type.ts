@@ -18,7 +18,7 @@ export const formFields: FormField[] = [
     placeholder: 'Enter your password...',
   },
   {
-    id: 'password',
+    id: 'password-repeat',
     label: 'Confirm password',
     type: 'password',
     placeholder: 'Confirm password...',
