@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 import { CheckboxGender } from '@components/checkbox-gender';
 import { FormInput } from '@components/form-input';
 import { SelectCountry } from '@components/select-country/select-country';
+import { UploadImage } from '@components/upload-image/upload-image';
 
 import { formFields } from './form.type';
 export const Form = (): JSX.Element => {
@@ -26,6 +27,7 @@ export const Form = (): JSX.Element => {
           </div>
         </div>
         <SelectCountry />
+        <UploadImage />
       </form>
       <button></button>
     </div>
