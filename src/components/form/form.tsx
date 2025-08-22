@@ -1,5 +1,6 @@
 import type { JSX } from 'react';
 
+import { CheckboxAgree } from '@components/checkbox-agree/checkbox-agree';
 import { CheckboxGender } from '@components/checkbox-gender';
 import { FormInput } from '@components/form-input';
 import { SelectCountry } from '@components/select-country/select-country';
@@ -20,7 +21,7 @@ export const Form = (): JSX.Element => {
           />
         ))}
         <div>
-          <label htmlFor="">Gender</label>
+          <label>Gender</label>
           <div className="flex gap-10">
             <CheckboxGender value={'male'} gender={'man'} />
             <CheckboxGender value={'female'} gender={'woman'} />
@@ -28,6 +29,7 @@ export const Form = (): JSX.Element => {
         </div>
         <SelectCountry />
         <UploadImage />
+        <CheckboxAgree name={'agree'} />
       </form>
       <button></button>
     </div>
