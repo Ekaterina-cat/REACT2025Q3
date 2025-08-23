@@ -4,11 +4,13 @@ import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps {
   textButton: string;
+  onClick: () => void;
 }
 
-export const Button = ({ textButton }: ButtonProps): JSX.Element => {
+export const Button = ({ textButton, onClick }: ButtonProps): JSX.Element => {
   return (
     <button
+      onClick={onClick}
       className={twMerge(
         'border border-gray-900 bg-white text-2xl text-gray-900',
         'font-borel rounded-lg p-6 font-black lowercase shadow-sm',
