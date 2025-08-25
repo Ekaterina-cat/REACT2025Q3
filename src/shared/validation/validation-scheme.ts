@@ -61,7 +61,7 @@ export const RegistrationSchema = z
     terms: z.boolean().refine((val) => val === true, {
       message: errorMessages.terms.required,
     }),
-    image: z
+    avatar: z
       .instanceof(File)
       .refine((file) => ['image/png', 'image/jpeg'].includes(file.type), {
         message: errorMessages.image.format,

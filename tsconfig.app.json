@@ -27,7 +27,8 @@
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
-      "@store/*": ["./src/store/*"]
+      "@store/*": ["./src/store/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   },
   "include": ["src", "vitest.config.ts"]

@@ -1,15 +1,17 @@
-import type { UseFormRegister, FieldValues, Path } from 'react-hook-form';
+import type { FormFieldId } from '@shared/types';
+import type { RegistrationFormValues } from '@shared/validation';
+import type { UseFormRegister } from 'react-hook-form';
 
 import { type ChangeEvent, type JSX } from 'react';
 
 interface CheckboxAgreeProps {
-  name: Path<FieldValues>;
+  name: 'terms';
   error?: string;
   defaultChecked?: boolean;
   onChange?: (checked: boolean) => boolean;
   value?: boolean;
-  register?: UseFormRegister<FieldValues>;
-  setValue?: (name: Path<FieldValues>, value: boolean) => void;
+  register?: UseFormRegister<RegistrationFormValues>;
+  setValue?: (name: FormFieldId, value: boolean) => void;
 }
 
 //a template element reusable in both forms, each with its own props

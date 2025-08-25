@@ -2,7 +2,7 @@ import { useRef, useState, type JSX } from 'react';
 
 interface UploadImageProps {
   error?: string;
-  onChange?: (file: File | null) => void;
+  onChange?: (file: File | undefined) => void;
 }
 
 export const UploadImage = ({

@@ -1,6 +1,7 @@
 import type { RootState } from '@store/store';
 
 import { Button } from '@components/button';
+import { Form } from '@components/form';
 import { Modal } from '@components/modal';
 import { closeModal, openModal } from '@store/modal-slice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,11 +33,7 @@ export const HomePage = () => {
       />
       {isModalOpen && (
         <Modal onClose={handleCloseModal}>
-          {modalContent === 'reactHookForm' ? (
-            <p>React Hook Form</p>
-          ) : (
-            <p>Not React</p>
-          )}
+          {modalContent === 'reactHookForm' ? <Form /> : <p>Not React</p>}
         </Modal>
       )}
     </section>

@@ -1,51 +1,46 @@
-import { useState, type ChangeEvent, type JSX } from 'react';
-import { useSelector } from 'react-redux';
+import { type JSX } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface Country {
-  code: string;
-  name: string;
-}
+import type { SelectCountryProps } from './types/select-country.type';
 
-interface RootState {
-  countries: {
-    list: Country[];
-  };
-}
+import { useSelectCountry } from './hooks/use-select-country';
 
-export const SelectCountry = (): JSX.Element => {
-  const [inputValue, setInputValue] = useState<string>('');
-  const [suggestionsCountry, setSuggestionsCountry] = useState<Country[]>([]);
+export const SelectCountry = ({
+  register,
+  setValue,
+  onChange,
+  value,
+  error,
+}: SelectCountryProps): JSX.Element => {
+  const {
+    inputValue,
+    suggestionsCountry,
+    handleInputChange,
+    handleSelectCountry,
+  } = useSelectCountry(value, onChange, setValue);
 
-  const countries = useSelector((state: RootState) => state.countries.list);
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setInputValue(value);
-    if (value.length > 0) {
-      const filtered = countries.filter((country) =>
-        country.name.toLowerCase().startsWith(value.toLowerCase())
-      );
-      setSuggestionsCountry(filtered);
-    } else {
-      setSuggestionsCountry([]);
-    }
-  };
-
-  const handleSelectCountry = (country: Country) => {
-    setInputValue(country.name);
-    setSuggestionsCountry([]);
-  };
   return (
-    <div>
+    <div className="relative">
       <label htmlFor="country">Country</label>
-      <input
-        id="country"
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Enter country name..."
-      />
+      {register ? (
+        <input
+          id="country"
+          type="text"
+          placeholder="Enter country name..."
+          {...register('country', { required: 'Please select a country' })}
+          onChange={handleInputChange}
+          value={inputValue}
+        />
+      ) : (
+        <input
+          id="country"
+          type="text"
+          placeholder="Enter country name..."
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+      )}
+      {error && <p className="text-red-500">{error}</p>}
       {suggestionsCountry.length > 0 && (
         <ul
           className={twMerge(

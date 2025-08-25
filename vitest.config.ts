@@ -30,6 +30,7 @@ export default defineConfig({
       '@components': '/src/components',
       '@pages': '/src/pages',
       '@store': '/src/store',
+      '@shared': '/src/shared',
     },
   },
 });
