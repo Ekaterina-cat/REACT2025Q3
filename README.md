@@ -11,12 +11,12 @@ Project "React Forms" is a training task within the course "React" from RSSchool
 
 ## Tech Stack
 
-| Category  | Technology                                                                                                                |
-| --------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Frontend  | [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)                                                |
-| Tooling   | [Vite](https://vite.dev/), [Prettier](https://prettier.io/), [ESLint](https://eslint.org/)                                |
-| Git Hooks | [Husky](https://typicode.github.io/husky/)                                                                                |
-| State     | [Redux Toolkit](https://redux-toolkit.js.org/)                                                                            |
+| Category  | Technology                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------ |
+| Frontend  | [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)                 |
+| Tooling   | [Vite](https://vite.dev/), [Prettier](https://prettier.io/), [ESLint](https://eslint.org/) |
+| Git Hooks | [Husky](https://typicode.github.io/husky/)                                                 |
+| State     | [Redux Toolkit](https://redux-toolkit.js.org/)                                             |
 
 ## How to Run the Project Locally
 
