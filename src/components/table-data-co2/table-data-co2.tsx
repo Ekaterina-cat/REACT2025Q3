@@ -1,5 +1,6 @@
-import { useGetCo2DataQuery } from '../store/api';
-import { API_BASE } from '../utils/constants';
+import { Spinner } from '@components/spinner';
+import { useGetCo2DataQuery } from '@store/api';
+import { API_BASE } from '@utils/constants';
 
 interface CountryCO2Data {
   year: number;
@@ -12,42 +13,42 @@ interface CountryData {
   data: CountryCO2Data[];
 }
 
-export const Co2Data = () => {
+export const TableDataCo2 = () => {
   const { data, isLoading, error } = useGetCo2DataQuery(
     `${API_BASE}/owid-co2-data.json`
   );
 
-  if (isLoading) return <div>Загрузка...</div>;
+  if (isLoading) return <Spinner />;
 
   if (error) {
     if ('status' in error) {
       // Ошибка типа FetchBaseQueryError
       const errMsg =
         'error' in error ? error.error : JSON.stringify(error.data);
-      return <div>Ошибка: {errMsg}</div>;
+      return <div>Error: {errMsg}</div>;
     } else {
       // Ошибка типа SerializedError
-      return <div>Ошибка: {error.message}</div>;
+      return <div>Error: {error.message}</div>;
     }
   }
 
   if (!data) {
-    return <div>Данные отсутствуют</div>;
+    return <div>No data available</div>;
   }
 
   const countries = Object.entries(data) as [string, CountryData][];
 
   return (
     <div className="co2-data p-4">
-      <h2 className="text-2xl font-bold mb-4">CO2 данные по всем странам:</h2>
-      <table className="w-full border-collapse mb-4">
+      <h2 className="mb-4 text-2xl font-bold">CO2 data for all countries:</h2>
+      <table className="mb-4 w-full border-collapse">
         <thead className="bg-gray-300">
           <tr>
-            <th className="p-3 text-left border-b border-gray-200">№</th>
-            <th className="p-3 text-left border-b border-gray-200">Страна</th>
-            <th className="p-3 text-left border-b border-gray-200">ISO Код</th>
-            <th className="p-3 text-left border-b border-gray-200">
-              Население (2023)
+            <th className="border-b border-gray-200 p-3 text-left">№</th>
+            <th className="border-b border-gray-200 p-3 text-left">Country</th>
+            <th className="border-b border-gray-200 p-3 text-left">ISO code</th>
+            <th className="border-b border-gray-200 p-3 text-left">
+              Population (2023)
             </th>
           </tr>
         </thead>
@@ -62,7 +63,7 @@ export const Co2Data = () => {
                 <td className="p-3">{countryName}</td>
                 <td className="p-3">{countryData.iso_code}</td>
                 <td className="p-3">
-                  {dataFor2023 ? dataFor2023.population : 'Нет данных'}
+                  {dataFor2023 ? dataFor2023.population : 'No Data'}
                 </td>
               </tr>
             );
