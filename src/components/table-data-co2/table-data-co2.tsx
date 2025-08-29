@@ -1,73 +1,80 @@
 import { Spinner } from '@components/spinner';
-import { useGetCo2DataQuery } from '@store/api';
-import { API_BASE } from '@utils/constants';
 
-interface CountryCO2Data {
-  year: number;
-  co2: number;
-  population: number;
-}
-
-interface CountryData {
-  iso_code: string;
-  data: CountryCO2Data[];
-}
+import { useTableDataCo2 } from './hooks';
 
 export const TableDataCo2 = () => {
-  const { data, isLoading, error } = useGetCo2DataQuery(
-    `${API_BASE}/owid-co2-data.json`
-  );
+  const {
+    isLoading,
+    error,
+    data: sortedCountries,
+    searchTerm,
+    setSearchTerm,
+    requestSort,
+    getSortIndicator,
+  } = useTableDataCo2();
 
   if (isLoading) return <Spinner />;
-
   if (error) {
     if ('status' in error) {
-      // Ошибка типа FetchBaseQueryError
       const errMsg =
         'error' in error ? error.error : JSON.stringify(error.data);
-      return <div>Error: {errMsg}</div>;
+      return <div className="text-red-500">Error: {errMsg}</div>;
     } else {
-      // Ошибка типа SerializedError
-      return <div>Error: {error.message}</div>;
+      return <div className="text-red-500">Error: {error.message}</div>;
     }
   }
-
-  if (!data) {
-    return <div>No data available</div>;
-  }
-
-  const countries = Object.entries(data) as [string, CountryData][];
 
   return (
     <div className="co2-data p-4">
       <h2 className="mb-4 text-2xl font-bold">CO2 data for all countries:</h2>
-      <table className="mb-4 w-full border-collapse">
-        <thead className="bg-gray-300">
-          <tr>
-            <th className="border-b border-gray-200 p-3 text-left">№</th>
-            <th className="border-b border-gray-200 p-3 text-left">Country</th>
-            <th className="border-b border-gray-200 p-3 text-left">ISO code</th>
-            <th className="border-b border-gray-200 p-3 text-left">
-              Population (2023)
+      <div className="mb-5">
+        <input
+          type="text"
+          placeholder="Search by country..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-72 rounded border px-3 py-2"
+        />
+      </div>
+      <table className="w-full border-collapse">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="border-b px-3 py-2 text-left">№</th>
+            <th
+              className="cursor-pointer border-b px-3 py-2 text-left"
+              onClick={() => requestSort('countryName')}
+            >
+              Country {getSortIndicator('countryName')}
+            </th>
+            <th className="cursor-pointer border-b px-3 py-2 text-left">
+              ISO Код
+            </th>
+            <th
+              className="cursor-pointer border-b px-3 py-2 text-left"
+              onClick={() => requestSort('population')}
+            >
+              Population (2023) {getSortIndicator('population')}
             </th>
           </tr>
         </thead>
         <tbody>
-          {countries.map(([countryName, countryData], index) => {
-            const dataFor2023 = countryData.data.find(
-              (item: CountryCO2Data) => item.year === 2023
-            );
-            return (
-              <tr key={countryName} className="border-b border-gray-200">
-                <td className="p-3">{index + 1}</td>
-                <td className="p-3">{countryName}</td>
-                <td className="p-3">{countryData.iso_code}</td>
-                <td className="p-3">
-                  {dataFor2023 ? dataFor2023.population : 'No Data'}
-                </td>
-              </tr>
-            );
-          })}
+          {sortedCountries.map(
+            ({ originalIndex, country: [countryName, countryData] }) => {
+              const dataFor2023 = countryData.data.find(
+                (item) => item.year === 2023
+              );
+              return (
+                <tr key={countryName} className="border-b">
+                  <td className="px-3 py-2">{originalIndex}</td>
+                  <td className="px-3 py-2">{countryName}</td>
+                  <td className="px-3 py-2">{countryData.iso_code}</td>
+                  <td className="px-3 py-2">
+                    {dataFor2023 ? dataFor2023.population : 'Not data'}
+                  </td>
+                </tr>
+              );
+            }
+          )}
         </tbody>
       </table>
     </div>
