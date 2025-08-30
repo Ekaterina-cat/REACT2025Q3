@@ -51,7 +51,7 @@ export const TableDataCo2 = () => {
                 <>
                   <tr
                     key={countryName}
-                    className="cursor-pointer border-b hover:bg-gray-50"
+                    className="cursor-pointer border-t border-b hover:bg-gray-50"
                     onClick={() => handleRowClick(countryName)}
                   >
                     <td className="px-3 py-2">{originalIndex}</td>
