@@ -1,6 +1,10 @@
+import type { ColumnKey } from '@components/modal-widget/types';
+
 import { ExpandedDataCountry } from '@components/expanded-data-country';
+import { ModalWidget } from '@components/modal-widget/modal-widget';
 import { Spinner } from '@components/spinner';
 import { TableHeader } from '@components/table-header';
+import { initialColumnsVisibility, nameColunms } from '@utils/constants';
 import { useState } from 'react';
 
 import { useTableDataCo2 } from './hooks';
@@ -15,6 +19,10 @@ export const TableDataCo2 = () => {
     requestSort,
     getSortIndicator,
   } = useTableDataCo2();
+
+  const [colVisibility, setColVisibility] = useState<
+    Record<ColumnKey, boolean>
+  >(initialColumnsVisibility);
 
   const [expandedData, setExpandedData] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState(2023);
@@ -33,13 +41,39 @@ export const TableDataCo2 = () => {
 
   return (
     <>
-      <TableHeader
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        requestSort={requestSort}
-        getSortIndicator={getSortIndicator}
+      <ModalWidget
+        colVisibility={colVisibility}
+        setColVisibility={setColVisibility}
       />
+      <TableHeader searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <table className="w-full border-collapse">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="border-b px-3 py-2">{nameColunms.serial_number}</th>
+            <th
+              className="cursor-pointer border-b px-3 py-2"
+              onClick={() => requestSort('countryName')}
+            >
+              {nameColunms.name_country} {getSortIndicator('countryName')}
+            </th>
+            <th className="border-b px-3 py-2">{nameColunms.iso_code}</th>
+            <th
+              className="cursor-pointer border-b px-3 py-2"
+              onClick={() => requestSort('population')}
+            >
+              {nameColunms.population} {getSortIndicator('population')}
+            </th>
+            {Object.entries(colVisibility).map(([key, isVisible]) => {
+              if (!isVisible) return null;
+              const columnKey = key as ColumnKey;
+              return (
+                <th key={key} className="border-b px-3 py-2">
+                  {nameColunms[columnKey]}
+                </th>
+              );
+            })}
+          </tr>
+        </thead>
         <tbody>
           {sortedCountries.map(
             ({ originalIndex, country: [countryName, countryData] }) => {
@@ -51,6 +85,7 @@ export const TableDataCo2 = () => {
                 <>
                   <tr
                     key={countryName}
+                    title={`Click to get detailed information on emissions in: ${countryName}`}
                     className="cursor-pointer border-t border-b hover:bg-gray-50"
                     onClick={() => handleRowClick(countryName)}
                   >
@@ -60,6 +95,16 @@ export const TableDataCo2 = () => {
                     <td className="px-3 py-2">
                       {dataFor2023 ? dataFor2023.population : 'No data'}
                     </td>
+                    {Object.entries(colVisibility).map(([key, isVisible]) => {
+                      if (!isVisible) return null;
+                      const columnKey = key as ColumnKey;
+                      console.log(`${columnKey}:`, dataFor2023?.[columnKey]);
+                      return (
+                        <td key={key} className="px-3 py-2">
+                          {dataFor2023?.[columnKey] || 'No data'}
+                        </td>
+                      );
+                    })}
                   </tr>
                   {isExpanded && (
                     <ExpandedDataCountry

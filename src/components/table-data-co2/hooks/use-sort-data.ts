@@ -1,17 +1,8 @@
+import type { CountryData } from '@utils/types';
+
 import { useMemo } from 'react';
 
-interface CountryCO2Data {
-  year: number;
-  co2: number;
-  population: number;
-}
-
-interface CountryData {
-  iso_code: string;
-  data: CountryCO2Data[];
-}
-
-interface CountryEntry {
+export interface CountryEntry {
   originalIndex: number;
   country: [string, CountryData];
 }
