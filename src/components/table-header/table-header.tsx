@@ -9,8 +9,10 @@ export const TableHeader = ({
 }: TableHeaderProps) => {
   return (
     <div className="w-full border-collapse">
-      <h2 className="mb-4 text-2xl font-bold">CO2 data for all countries:</h2>
-      <div className="mb-5">
+      <h2 className="font-courgette mb-4 text-2xl font-bold">
+        CO2 emissions data for each country in the world:
+      </h2>
+      <div className="font-borel mb-5 pt-2.5">
         <input
           type="text"
           placeholder="Search by country..."

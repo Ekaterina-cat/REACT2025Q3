@@ -7,7 +7,8 @@ import { useSortCountries } from './use-sort-data';
 
 export const useTableDataCo2 = () => {
   const { data, isLoading, error } = useGetCo2DataQuery(
-    `${API_BASE}/owid-co2-data.json`
+    `${API_BASE}/owid-co2-data.json`,
+    { refetchOnMountOrArgChange: true }
   );
 
   const [searchTerm, setSearchTerm] = useState('');
